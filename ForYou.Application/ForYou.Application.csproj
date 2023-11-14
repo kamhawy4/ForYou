@@ -6,4 +6,39 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Features\Category\Commands\" />
+    <Folder Include="Features\Category\Commands\CreateCategory\" />
+    <Folder Include="Features\Category\Commands\DeleteCategory\" />
+    <Folder Include="Features\Category\Commands\UpdateCategory\" />
+    <Folder Include="Features\Category\Queries\" />
+    <Folder Include="Features\Comment\Commands\" />
+    <Folder Include="Features\Comment\Commands\CreateComment\" />
+    <Folder Include="Features\Comment\Commands\DeleteComment\" />
+    <Folder Include="Features\Comment\Commands\UpdateComment\" />
+    <Folder Include="Features\Comment\Queries\" />
+    <Folder Include="Features\Post\Commands\" />
+    <Folder Include="Features\Post\Commands\CreatePost\" />
+    <Folder Include="Features\Post\Commands\DeletePost\" />
+    <Folder Include="Features\Post\Commands\UpdatePost\" />
+    <Folder Include="Features\Post\Queries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Features\Category\Commands\" />
+    <None Remove="Features\Category\Commands\CreateCategory\" />
+    <None Remove="Features\Category\Commands\DeleteCategory\" />
+    <None Remove="Features\Category\Commands\UpdateCategory\" />
+    <None Remove="Features\Category\Queries\" />
+    <None Remove="Features\Comment\Commands\" />
+    <None Remove="Features\Comment\Commands\CreateComment\" />
+    <None Remove="Features\Comment\Commands\DeleteComment\" />
+    <None Remove="Features\Comment\Commands\UpdateComment\" />
+    <None Remove="Features\Comment\Queries\" />
+    <None Remove="Features\Post\Commands\" />
+    <None Remove="Features\Post\Commands\CreatePost\" />
+    <None Remove="Features\Post\Commands\DeletePost\" />
+    <None Remove="Features\Post\Commands\UpdatePost\" />
+    <None Remove="Features\Post\Queries\" />
+  </ItemGroup>
 </Project>
