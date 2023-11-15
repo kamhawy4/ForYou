@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ForYou.Application.Command.Post
 {
-    internal class CreatePostCommend
+    public class DeleteCommentCommend
     {
 
     }

@@ -1,51 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ForYou.Application.Command.Post;
+using ForYou.Application.Features.Category.Queries;
+using ForYou.Infrastructure;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ForYou.Api.Controllers
 {
     [ApiController]
-    [Route("api/tasks")]
+    [Route("api/posts")]
     public class PostController : ControllerBase
     {
-        private readonly CreateTaskCommandHandler _createTaskCommandHandler;
-        private readonly CompleteTaskCommandHandler _completeTaskCommandHandler;
-        private readonly GetTaskQueryHandler _getTaskQueryHandler;
 
-        public PostController(
-            CreateTaskCommandHandler createTaskCommandHandler,
-            CompleteTaskCommandHandler completeTaskCommandHandler,
-            GetTaskQueryHandler getTaskQueryHandler)
+        private readonly IMediator _mediator;
+
+        public PostController(IMediator mediator)
         {
-            _createTaskCommandHandler = createTaskCommandHandler;
-            _completeTaskCommandHandler = completeTaskCommandHandler;
-            _getTaskQueryHandler = getTaskQueryHandler;
+            _mediator = mediator;
         }
 
-        [HttpPost("create")]
-        public IActionResult CreateTask([FromBody] CreateTaskCommand command)
+
+        [HttpPost(Name = "AddPost")]
+        public async Task<ActionResult<Guid>> Create([FromForm] CreatePostCommend createPostCommand)
         {
-            _createTaskCommandHandler.Handle(command);
-            return Ok();
-        }
-
-        [HttpPost("complete")]
-        public IActionResult CompleteTask([FromBody] CompleteTaskCommand command)
-        {
-            _completeTaskCommandHandler.Handle(command);
-            return Ok();
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetTask(int id)
-        {
-            var query = new GetTaskQuery { Id = id };
-            var task = _getTaskQueryHandler.Handle(query);
-
-            if (task == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(task);
+            Guid id = await _mediator.Send(createPostCommand);
+            return Ok(id);
         }
     }
 }

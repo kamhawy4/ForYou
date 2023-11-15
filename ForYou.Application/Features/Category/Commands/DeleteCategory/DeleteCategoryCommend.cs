@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForYou.Application.Handler.Post
+namespace ForYou.Application.Command.Post
 {
-    internal class CreatePostHandler
+    public class DeleteCategoryCommend
     {
+
     }
 }

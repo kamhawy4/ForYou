@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForYou.Application.Command
+namespace ForYou.Application.Features.Category.Queries
 {
-    internal class DeleteCommentCommend
+    public class GetCommentListQuery
     {
     }
 }

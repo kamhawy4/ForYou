@@ -1,12 +1,14 @@
-﻿using System;
+﻿using ForYou.Application.Contracts;
+using ForYou.Domain.Entities;
+using ForYou.Infrastructure.Repositories;
+using System;
 namespace ForYou.Infrastructure
 {
-	public class GategoryRepository
-	{
-		public GategoryRepository()
-		{
-
-		}
-	}
+    public class GategoryRepository : BaseRepository<CategoryEntity>, IGategoryRepository
+    {
+        public GategoryRepository(PostDbContext dbContext) : base(dbContext)
+        {
+        }
+    }
 }
 

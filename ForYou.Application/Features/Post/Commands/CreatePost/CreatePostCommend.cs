@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using System;
 
 namespace ForYou.Application.Command.Post
 {
-    internal class CreatePostCommend
+    public class CreatePostCommend : IRequest<Guid>
     {
-
+        public string Title { get; set; }
+        public string Content { get; set; }
+        public string Image { get; set; }
+        public string Author { get; set; }
+        public Guid CategoryId { get; set; }
     }
 }

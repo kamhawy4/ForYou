@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForYou.Application.Command.Post
+namespace ForYou.Application.Handler.Post
 {
-    internal class CreatePostCommend
+    public class CreateCategoryHandler
     {
-
     }
 }

@@ -8,6 +8,7 @@
             public string Email { get; set; } = null!;
             public string Mobile { get; set; } = null!;
             public string Password { get; set; } = null!;
+            public DateTime PublishedDate { get; set; }
     }
 }
 
