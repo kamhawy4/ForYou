@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Features\Category\Commands\" />
     <Folder Include="Features\Category\Commands\CreateCategory\" />
     <Folder Include="Features\Category\Commands\DeleteCategory\" />
@@ -22,7 +21,6 @@
     <Folder Include="Features\Post\Commands\CreatePost\" />
     <Folder Include="Features\Post\Commands\DeletePost\" />
     <Folder Include="Features\Post\Commands\UpdatePost\" />
-    <Folder Include="Features\Post\Queries\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Features\Category\Commands\" />

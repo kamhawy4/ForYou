@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForYou.Application.Command.Post
+namespace ForYou.Application.Features.Post.Queries.GetPostDetail
 {
-    public class UpdatePostCommend :  IRequest
+    public class GetPostByIdQuery :  IRequest<GetPostByIdQueryViewModel>
     {
         public Guid Id { get; set; }
     }

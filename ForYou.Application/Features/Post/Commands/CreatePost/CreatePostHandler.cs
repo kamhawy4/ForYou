@@ -32,9 +32,9 @@ namespace ForYou.Application.Handler.Post
 
             var result = await validator.ValidateAsync(request);
 
-           if(result.Errors.Any()) throw new Exception("post not found");
-
-           await _postRepository.AddAsync(post);
+            if(result.Errors.Any()) throw new Exception("post not found");
+ 
+            await _postRepository.AddAsync(post);
 
             return post.Id;
 

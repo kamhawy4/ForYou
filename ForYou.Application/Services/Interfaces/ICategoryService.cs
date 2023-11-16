@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForYou.Application.Features.Category.Queries
+namespace ForYou.Application.Services.Interfaces
 {
-    public class GetPostListQuery
+    interface ICategoryService
     {
 
     }

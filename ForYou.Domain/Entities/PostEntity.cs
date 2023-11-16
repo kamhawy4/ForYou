@@ -9,8 +9,8 @@
         public string Author { get; set; } = null!;
         public DateTime PublishedDate { get; set; }
 
-        public string CategoryId { get; set; }
         public CategoryEntity CategoryEntity { get; set; }
+        public Guid CategoryId { get; set; }
 
     }
 }
