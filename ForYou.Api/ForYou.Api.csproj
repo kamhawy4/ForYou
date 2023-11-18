@@ -17,12 +17,13 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ForYou.Application\ForYou.Application.csproj" />
     <ProjectReference Include="..\ForYou.Infrastructure\ForYou.Infrastructure.csproj" />
-    <ProjectReference Include="..\SharedServices\ForYou.SharedServices.csproj" />
+    <ProjectReference Include="..\ForYou.SharedServices\ForYou.SharedServices.csproj" />
   </ItemGroup>
 
 </Project>

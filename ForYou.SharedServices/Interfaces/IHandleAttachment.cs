@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
-namespace SharedServices.Interfaces
+namespace ForYou.SharedServices.Interfaces
 {
     public interface IHandleAttachment
     {
-        void Upload(IHandleAttachment attachment);
+        Task<string> Upload(IFormFile attachment);
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ForYou.Application.Handler.Post
 {
-    internal class UpdateCommentHandler
+    public class UpdateCommentHandler
     {
+
     }
 }

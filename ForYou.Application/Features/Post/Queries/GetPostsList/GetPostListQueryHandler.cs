@@ -12,8 +12,6 @@ namespace ForYou.Application.Features.Post.Queries.GetPostDetail
 {
     public class GetPostListQueryHandler : IRequestHandler<GetPostListQuery, List<GetPostListQueryViewModel>>
     {
-
-
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
 

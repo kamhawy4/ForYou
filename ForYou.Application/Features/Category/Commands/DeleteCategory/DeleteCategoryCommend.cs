@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForYou.Application.Command.Post
+namespace ForYou.Application.Features.Category.Commands.DeleteCategory
 {
     public class DeleteCategoryCommend
     {

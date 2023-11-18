@@ -1,8 +1,9 @@
 using ForYou.Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using SharedServices.Interfaces;
-using SharedServices.Services;
+using ForYou.SharedServices.Interfaces;
+using ForYou.SharedServices.Services;
+using ForYou.Application.Contracts;
+using ForYou.Api.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 builder.Services.AddDbContext<PostDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnectionString")));
 builder.Services.AddScoped<IHandleAttachment, HandleAttachment>();
+builder.Services.AddScoped<IGategoryRepository, GategoryRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

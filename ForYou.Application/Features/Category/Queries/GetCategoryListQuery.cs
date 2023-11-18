@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ForYou.Application.Features.Category.Queries
 {
-    internal class GetCategoryListQuery
+    public class GetCategoryListQuery
     {
     }
 }

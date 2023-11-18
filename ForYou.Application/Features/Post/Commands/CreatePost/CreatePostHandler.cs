@@ -1,14 +1,10 @@
-﻿using AutoMapper;
+﻿using System.Net.Mail;
+using AutoMapper;
 using ForYou.Application.Command.Post;
-using ForYou.Application.Command.Post.CreatePost;
 using ForYou.Application.Interfaces;
 using ForYou.Domain.Entities;
+using ForYou.SharedServices.Interfaces;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CreatePostValidator = ForYou.Application.Command.Post.CreatePostValidator;
 
 namespace ForYou.Application.Handler.Post
@@ -18,10 +14,12 @@ namespace ForYou.Application.Handler.Post
         private readonly IMapper _mapper;
 
         private readonly IPostRepository _postRepository;
+        private readonly IHandleAttachment _attachment;
 
-        public CreatePostHandler(IPostRepository postRepository,IMapper mapper) {
+        public CreatePostHandler(IPostRepository postRepository,IMapper mapper, IHandleAttachment attachment) {
             _postRepository = postRepository;
             _mapper = mapper;
+            _attachment = attachment;
         }
 
         public async Task<Guid> Handle(CreatePostCommend request, CancellationToken cancellationToken)
@@ -32,7 +30,9 @@ namespace ForYou.Application.Handler.Post
 
             var result = await validator.ValidateAsync(request);
 
-            if(result.Errors.Any()) throw new Exception("post not found");
+            await _attachment.Upload(post.Image);
+
+            if (result.Errors.Any()) throw new Exception("post not found");
  
             await _postRepository.AddAsync(post);
 

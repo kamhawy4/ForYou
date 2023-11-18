@@ -46,5 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ForYou.Domain\ForYou.Domain.csproj" />
+    <ProjectReference Include="..\ForYou.SharedServices\ForYou.SharedServices.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" />
   </ItemGroup>
 </Project>
