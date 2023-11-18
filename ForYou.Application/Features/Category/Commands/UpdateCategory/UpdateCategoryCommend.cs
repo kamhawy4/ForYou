@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediatR;
 
-namespace ForYou.Application.Command.Post
+namespace ForYou.Application.Features.Category.Commands.UpdateCategory
 {
-    public class UpdateCategoryCommend
+    public class UpdateCategoryCommend : IRequest
     {
-
+        public Guid Id { get; set; }
     }
 }

@@ -12,6 +12,5 @@ namespace ForYou.Application.Features.Category.Commands.CreateCategory
             RuleFor(p => p.Name).NotEmpty().NotNull().MaximumLength(100);
         }
 
-
     }
 }
