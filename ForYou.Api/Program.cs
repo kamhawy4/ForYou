@@ -4,6 +4,12 @@ using ForYou.SharedServices.Interfaces;
 using ForYou.SharedServices.Services;
 using ForYou.Application.Contracts;
 using ForYou.Api.Controllers;
+using System.Reflection;
+using MediatR;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using MediatR;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,10 +20,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+//builder.Services.AddMediatR(typeof(IRequestHandler,GetCategoryListQueryHandler).Assembly);
 builder.Services.AddDbContext<PostDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnectionString")));
 builder.Services.AddScoped<IHandleAttachment, HandleAttachment>();
 builder.Services.AddScoped<IGategoryRepository, GategoryRepository>();
-
+//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

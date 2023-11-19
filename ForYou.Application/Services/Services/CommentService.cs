@@ -8,5 +8,6 @@ namespace ForYou.Application.Services.Interfaces
 {
     internal class CommentService : ICommentService
     {
+
     }
 }
