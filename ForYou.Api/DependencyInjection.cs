@@ -1,4 +1,9 @@
-﻿namespace ForYou.Api
+﻿using ForYou.Application.Features.Category.Queries.GetCategoryDetail;
+using ForYou.Application.Features.Category.Queries.GetPostDetail;
+using MediatR;
+using System.Reflection;
+
+namespace ForYou.Api
 {
     public static class DependencyInjection
     {
@@ -8,6 +13,10 @@
 
             return services;
 
+        }
+        public static void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMediatR(Assembly.GetAssembly(typeof(GetCategoryListQuery)));
         }
     }
 }
