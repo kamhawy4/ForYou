@@ -1,5 +1,4 @@
-﻿using ForYou.Application.Features.Category.Queries.GetCategoryDetail;
-using ForYou.Application.Features.Category.Queries.GetPostDetail;
+﻿using ForYou.Application.Features.Category.Queries.GetCategoryList;
 using MediatR;
 using System.Reflection;
 

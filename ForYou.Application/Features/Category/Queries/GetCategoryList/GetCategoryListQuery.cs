@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForYou.Application.Features.Category.Queries.GetCategoryDetail
+namespace ForYou.Application.Features.Category.Queries.GetCategoryList
 {
     public class GetCategoryListQuery :IRequest<List<GetCategoryListQueryViewModel>>
     {

@@ -3,7 +3,6 @@ using ForYou.Application.Features.Category.Commands.DeleteCategory;
 using ForYou.Application.Features.Category.Commands.UpdateCategory;
 using ForYou.Application.Features.Category.Queries.GetCategoryDetail;
 using ForYou.Application.Features.Category.Queries.GetCategoryList;
-using ForYou.Application.Features.Category.Queries.GetPostDetail;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

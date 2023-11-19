@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using MediatR;
 using ForYou.Application.Features.Category.Queries.GetCategoryList;
-
+using ForYou.Application.Features.Category.Queries.GetCategoryDetail;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,8 +21,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddMediatR(typeof(GetCategoryListQueryHandler).Assembly); // Corrected line
-
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 builder.Services.AddDbContext<PostDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnectionString")));
 builder.Services.AddScoped<IHandleAttachment, HandleAttachment>();
 builder.Services.AddScoped<IGategoryRepository, GategoryRepository>();

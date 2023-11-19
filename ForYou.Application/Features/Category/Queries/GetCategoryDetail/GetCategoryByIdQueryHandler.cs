@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using ForYou.Application.Contracts;
-using ForYou.Application.Features.Category.Queries.GetPostDetail;
 using ForYou.Application.Interfaces;
 using MediatR;
 using System;
