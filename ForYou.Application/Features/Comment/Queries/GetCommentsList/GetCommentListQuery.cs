@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForYou.Application.Command.Commands.UpdateComment
+namespace ForYou.Application.Features.Comment.Queries.GetCommentsList
 {
-    public class UpdateCommentCommend :IRequest
+    public class GetCommentListQuery : IRequest<GetCommentListQueryViewModel>
     {
 
     }

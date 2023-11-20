@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForYou.Application.Command.Commands.DeleteComment
+namespace ForYou.Application.Features.Comment.Queries.GetCommentsDetail
 {
-    public class DeleteCommentCommend :IRequest
+    public class GetCommentByIdQuery :IRequest<GetCommentByIdQueryViewModel>
     {
         public Guid Id { get; set; }
     }

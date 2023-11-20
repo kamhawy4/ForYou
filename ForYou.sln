@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForYou.Domain", "ForYou.Dom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForYou.Infrastructure", "ForYou.Infrastructure\ForYou.Infrastructure.csproj", "{017CE240-2756-48B9-A7C6-EF11A513F8BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForYou.SharedServices", "ForYou.SharedServices\ForYou.SharedServices.csproj", "{68139459-EC48-44DF-80B1-5266F44BCDF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForYou.SharedServices", "ForYou.SharedServices\ForYou.SharedServices.csproj", "{68139459-EC48-44DF-80B1-5266F44BCDF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

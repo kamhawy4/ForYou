@@ -15,7 +15,6 @@
     <Folder Include="Features\Comment\Commands\CreateComment\" />
     <Folder Include="Features\Comment\Commands\DeleteComment\" />
     <Folder Include="Features\Comment\Commands\UpdateComment\" />
-    <Folder Include="Features\Comment\Queries\" />
     <Folder Include="Features\Post\Commands\" />
     <Folder Include="Features\Post\Commands\CreatePost\" />
     <Folder Include="Features\Post\Commands\DeletePost\" />

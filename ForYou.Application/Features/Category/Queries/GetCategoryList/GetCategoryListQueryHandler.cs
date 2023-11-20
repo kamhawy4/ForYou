@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ForYou.Application.Features.Category.Queries.GetCategoryList
 {
-    internal class GetCategoryListQueryHandler : IRequestHandler<GetCategoryListQuery, List<GetCategoryListQueryViewModel>>
+    public class GetCategoryListQueryHandler : IRequestHandler<GetCategoryListQuery, List<GetCategoryListQueryViewModel>>
     {
         private readonly IMapper _mapper;
 

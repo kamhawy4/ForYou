@@ -8,6 +8,7 @@ namespace ForYou.Infrastructure
     {
         public GategoryRepository(PostDbContext dbContext) : base(dbContext)
         {
+
         }
     }
 }

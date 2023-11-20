@@ -24,7 +24,6 @@ namespace ForYou.Application.Handler.Post
             var post =  await _postRepository.GetByIdAsync(request.Id);
 
             await _postRepository.DeleteAsync(post);
-
         }
     }
 }
