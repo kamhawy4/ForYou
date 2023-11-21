@@ -2,16 +2,10 @@ using ForYou.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using ForYou.SharedServices.Interfaces;
 using ForYou.SharedServices.Services;
-using ForYou.Application.Contracts;
-using ForYou.Api.Controllers;
 using System.Reflection;
-using MediatR;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using MediatR;
-using ForYou.Application.Features.Category.Queries.GetCategoryList;
-using ForYou.Application.Features.Category.Queries.GetCategoryDetail;
 using ForYou.Application;
+using ForYou.Application.Interfaces;
+using ForYou.Domain.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +20,7 @@ builder.Services.AddMediatR(o => o.RegisterServicesFromAssemblies(Assembly.GetEx
 builder.Services.AddApplicationServices();
 builder.Services.AddDbContext<PostDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnectionString")));
 builder.Services.AddScoped<IHandleAttachment, HandleAttachment>();
-builder.Services.AddScoped<IGategoryRepository, GategoryRepository>();
+builder.Services.AddAutoMapper(typeof(Program));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

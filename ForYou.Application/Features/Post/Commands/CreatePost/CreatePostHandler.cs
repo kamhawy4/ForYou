@@ -11,8 +11,8 @@ namespace ForYou.Application.Handler.Post
 {
     public class CreatePostHandler : IRequestHandler<CreatePostCommend, Guid>
     {
-        private readonly IMapper _mapper;
 
+        private readonly IMapper _mapper;
         private readonly IPostRepository _postRepository;
         private readonly IHandleAttachment _attachment;
 
@@ -30,7 +30,7 @@ namespace ForYou.Application.Handler.Post
 
             var result = await validator.ValidateAsync(request);
 
-            await _attachment.Upload(post.Image);
+           // await _attachment.Upload(post.Image);
 
             if (result.Errors.Any()) throw new Exception("post not found");
  

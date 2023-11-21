@@ -2,6 +2,7 @@
 using ForYou.Application.Contracts;
 using ForYou.Application.Features.Post.Queries.GetPostDetail;
 using ForYou.Application.Interfaces;
+using ForYou.Domain.Contracts;
 using MediatR;
 using System;
 using System.Collections.Generic;

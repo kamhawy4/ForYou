@@ -10,8 +10,7 @@ namespace ForYou.Application.Features.Category.Queries.GetCategoryList
     public class GetCategoryListQueryViewModel
     {
         public Guid Id { get; set; }
-        public Guid Name { get; set; }
-
+        public string Name { get; set; }
 
     }
 }

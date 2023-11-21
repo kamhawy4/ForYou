@@ -2,6 +2,7 @@
 using ForYou.Application.Command.Commands.UpdateComment;
 using ForYou.Application.Command.Post;
 using ForYou.Application.Contracts;
+using ForYou.Domain.Contracts;
 using ForYou.Domain.Entities;
 using MediatR;
 using System;

@@ -1,12 +1,13 @@
-﻿using ForYou.Application.Contracts;
+﻿using AspNetCore.ServiceRegistration.Dynamic;
+using ForYou.Application.Contracts;
 using ForYou.Domain.Entities;
 using System;
 
-namespace ForYou.Application.Contracts
+namespace ForYou.Domain.Contracts
 {
-	public interface IGategoryRepository : IAsyncRepository<CategoryEntity>
+	public interface IGategoryRepository : IAsyncRepository<CategoryEntity> , IScopedService
     {
-	 
+	  
 	}
 }
 

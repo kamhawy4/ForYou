@@ -4,6 +4,7 @@ using ForYou.Application.Command.Post.CreatePost;
 using ForYou.Application.Contracts;
 using ForYou.Application.Features.Category.Commands.CreateCategory;
 using ForYou.Application.Interfaces;
+using ForYou.Domain.Contracts;
 using ForYou.Domain.Entities;
 using ForYou.SharedServices.Interfaces;
 using MediatR;

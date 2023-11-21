@@ -1,4 +1,5 @@
 ﻿using ForYou.Application.Contracts;
+using ForYou.Domain.Contracts;
 using ForYou.Domain.Entities;
 using ForYou.Infrastructure.Repositories;
 using System;

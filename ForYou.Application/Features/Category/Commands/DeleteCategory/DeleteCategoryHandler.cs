@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using ForYou.Application.Contracts;
+using ForYou.Domain.Contracts;
 using MediatR;
 
 namespace ForYou.Application.Features.Category.Commands.DeleteCategory

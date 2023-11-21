@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ForYou.Application.Contracts;
 using ForYou.Application.Features.Category.Queries.GetCategoryDetail;
+using ForYou.Domain.Contracts;
 using MediatR;
 using System;
 using System.Collections.Generic;

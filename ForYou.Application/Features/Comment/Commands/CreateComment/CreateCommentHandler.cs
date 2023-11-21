@@ -4,6 +4,7 @@ using ForYou.Application.Command.Commands.CreateComment;
 using ForYou.Application.Command.Post;
 using ForYou.Application.Contracts;
 using ForYou.Application.Interfaces;
+using ForYou.Domain.Contracts;
 using ForYou.Domain.Entities;
 using MediatR;
 using System;
@@ -32,11 +33,11 @@ namespace ForYou.Application.Handler.Commands.CreateComment
 
             CreateCommentValidator validator = new CreateCommentValidator();
 
-         //   var result = await validator.ValidateAsync(comments);
+            //var result = await validator.ValidateAsync(comments);
 
-           // if (result.Errors.Any()) throw new Exception("comment not found");
+            //if (result.Errors.Any()) throw new Exception("comment not found");
 
-//            await _commentRepository.AddAsync(comments);
+            //await _commentRepository.AddAsync(comments);
 
             return comments.Id;
 
