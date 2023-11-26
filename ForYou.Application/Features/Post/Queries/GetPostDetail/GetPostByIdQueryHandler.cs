@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ForYou.Application.Interfaces;
+using ForYou.Domain.Contracts;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,20 +13,16 @@ namespace ForYou.Application.Features.Post.Queries.GetPostDetail
     public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, GetPostByIdQueryViewModel>
     {
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
-        private readonly IPostRepository _postRepository;  
-
-        public GetPostByIdQueryHandler(IPostRepository postRepository, IMapper mapper) {
-
+        public GetPostByIdQueryHandler(IMapper mapper, IUnitOfWork unitOfWork) {
             _mapper = mapper;
-
-            _postRepository = postRepository;
-
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<GetPostByIdQueryViewModel> Handle(GetPostByIdQuery request, CancellationToken cancellationToken)
         {
-            var post = await _postRepository.GetByIdAsync(request.Id);
+            var post = await _unitOfWork.posts.GetByIdAsync(request.Id);
 
             return _mapper.Map<GetPostByIdQueryViewModel>(post);
         }

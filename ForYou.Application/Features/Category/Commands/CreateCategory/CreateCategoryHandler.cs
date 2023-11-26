@@ -15,12 +15,12 @@ namespace ForYou.Application.Features.Category.Commands.CreateCategory
     {
         private readonly IMapper _mapper;
 
-        private readonly IGategoryRepository _gategoryRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCategoryHandler(IGategoryRepository gategoryRepository, IMapper mapper)
+        public CreateCategoryHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            _gategoryRepository = gategoryRepository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<Guid> Handle(CreateCategoryCommend request, CancellationToken cancellationToken)
@@ -33,7 +33,7 @@ namespace ForYou.Application.Features.Category.Commands.CreateCategory
 
             if (result.Errors.Any()) throw new Exception("post not found");
 
-            await _gategoryRepository.AddAsync(category);
+            await _unitOfWork.categories.AddAsync(category);
 
             return category.Id;
         }

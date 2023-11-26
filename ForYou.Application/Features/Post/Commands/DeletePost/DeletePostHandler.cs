@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ForYou.Application.Command.Post;
 using ForYou.Application.Interfaces;
+using ForYou.Domain.Contracts;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,18 +13,19 @@ namespace ForYou.Application.Handler.Post
 {
     public class DeletePostHandler : IRequestHandler<DeletePostCommend>
     {
-        private readonly IPostRepository _postRepository;
 
-        public DeletePostHandler(IPostRepository postRepository)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public DeletePostHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            _postRepository = postRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task Handle(DeletePostCommend request, CancellationToken cancellationToken)
         {
-            var post =  await _postRepository.GetByIdAsync(request.Id);
+            var post =  await _unitOfWork.posts.GetByIdAsync(request.Id);
 
-            await _postRepository.DeleteAsync(post);
+            await _unitOfWork.posts.DeleteAsync(post);
         }
     }
 }

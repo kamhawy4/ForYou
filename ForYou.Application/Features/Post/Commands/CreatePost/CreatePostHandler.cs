@@ -2,6 +2,7 @@
 using AutoMapper;
 using ForYou.Application.Command.Post;
 using ForYou.Application.Interfaces;
+using ForYou.Domain.Contracts;
 using ForYou.Domain.Entities;
 using ForYou.SharedServices.Interfaces;
 using MediatR;
@@ -13,14 +14,17 @@ namespace ForYou.Application.Handler.Post
     {
 
         private readonly IMapper _mapper;
-        private readonly IPostRepository _postRepository;
         private readonly IHandleAttachment _attachment;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CreatePostHandler(IPostRepository postRepository,IMapper mapper, IHandleAttachment attachment) {
-            _postRepository = postRepository;
+
+        public CreatePostHandler(IMapper mapper, IHandleAttachment attachment, IUnitOfWork unitOfWork) {
             _mapper = mapper;
             _attachment = attachment;
+            _unitOfWork = unitOfWork;
+
         }
+
 
         public async Task<Guid> Handle(CreatePostCommend request, CancellationToken cancellationToken)
         {
@@ -34,7 +38,7 @@ namespace ForYou.Application.Handler.Post
 
             if (result.Errors.Any()) throw new Exception("post not found");
  
-            await _postRepository.AddAsync(post);
+            await _unitOfWork.posts.AddAsync(post);
 
             return post.Id;
 

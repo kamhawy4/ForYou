@@ -18,22 +18,22 @@ namespace ForYou.Application.Features.Category.Commands.UpdateCategory
 
         private readonly IMapper _mapper;
 
-        private readonly IGategoryRepository _gategoryRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UpdateCategoryHandler(IGategoryRepository gategoryRepository, IMapper mapper)
+        public UpdateCategoryHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            _gategoryRepository = gategoryRepository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
+
 
         public async Task Handle(UpdateCategoryCommend request, CancellationToken cancellationToken)
         {
-
-            var Category = await _gategoryRepository.GetByIdAsync(request.Id);
+            var Category = await _unitOfWork.categories.GetByIdAsync(request.Id);
 
             Category.Name = request.Name;
 
-            await _gategoryRepository.UpdateAsync(Category);
+            await _unitOfWork.categories.UpdateAsync(Category);
 
         }
 

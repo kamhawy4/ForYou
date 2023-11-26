@@ -19,12 +19,13 @@ namespace ForYou.Application.Handler.Commands.CreateComment
     public class CreateCommentHandler : IRequestHandler<CreateCommentCommend, Guid>
     {
         private readonly IMapper _mapper;
-        private readonly ICommentRepository _commentRepository;
 
-        public CreateCommentHandler(ICommentRepository commentRepository, IMapper mapper)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public CreateCommentHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
-            _commentRepository = commentRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<Guid> Handle(CreateCommentCommend request, CancellationToken cancellationToken)
@@ -37,7 +38,7 @@ namespace ForYou.Application.Handler.Commands.CreateComment
 
             //if (result.Errors.Any()) throw new Exception("comment not found");
 
-            //await _commentRepository.AddAsync(comments);
+           // await _unitOfWork.comments.AddAsync(comments);
 
             return comments.Id;
 

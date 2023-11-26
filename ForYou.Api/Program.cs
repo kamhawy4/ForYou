@@ -6,6 +6,7 @@ using System.Reflection;
 using ForYou.Application;
 using ForYou.Application.Interfaces;
 using ForYou.Domain.Contracts;
+using ForYou.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ builder.Services.AddMediatR(o => o.RegisterServicesFromAssemblies(Assembly.GetEx
 builder.Services.AddApplicationServices();
 builder.Services.AddDbContext<PostDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnectionString")));
 builder.Services.AddScoped<IHandleAttachment, HandleAttachment>();
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

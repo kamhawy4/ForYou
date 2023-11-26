@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ForYou.Application.Command.Post;
 using ForYou.Application.Interfaces;
+using ForYou.Domain.Contracts;
 using ForYou.Domain.Entities;
 using MediatR;
 using System;
@@ -15,20 +16,21 @@ namespace ForYou.Application.Handler.Post
     {
 
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
-        private readonly IPostRepository _postRepository;
-
-        public UpdatePostHandler(IPostRepository postRepository, IMapper mapper)
+        public UpdatePostHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            _postRepository = postRepository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
+
         }
+        
 
         public async Task Handle(UpdatePostCommend request, CancellationToken cancellationToken)
         {
             var post = _mapper.Map<PostEntity>(request);
 
-            await _postRepository.UpdateAsync(post);
+            await _unitOfWork.posts.UpdateAsync(post);
         }
     }
 }

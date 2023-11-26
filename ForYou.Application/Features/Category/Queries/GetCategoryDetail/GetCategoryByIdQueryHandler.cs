@@ -16,17 +16,18 @@ namespace ForYou.Application.Features.Category.Queries.GetCategoryDetail
 
         private readonly IMapper _mapper;
 
-        private readonly IGategoryRepository _gategoryRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public GetCategoryByIdQueryHandler(IGategoryRepository gategoryRepository, IMapper mapper)
+        public GetCategoryByIdQueryHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            _gategoryRepository = gategoryRepository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
+
 
         public async Task<GetCategoryByIdQueryViewModel> Handle(GetCategoryByIdQuery request, CancellationToken cancellationToken)
         {
-            var gategory =  await _gategoryRepository.GetByIdAsync(request.Id);
+            var gategory = _unitOfWork.categories.GetByIdAsync(request.Id);
 
             return _mapper.Map<GetCategoryByIdQueryViewModel>(gategory);
         }

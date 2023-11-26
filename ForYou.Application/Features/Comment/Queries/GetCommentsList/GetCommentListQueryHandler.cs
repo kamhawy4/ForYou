@@ -15,17 +15,18 @@ namespace ForYou.Application.Features.Comment.Queries.GetCommentsList
     public class GetCommentListQueryHandler : IRequestHandler<GetCommentListQuery, GetCommentListQueryViewModel>
     {
         private readonly IMapper _mapper;
-        private readonly ICommentRepository _commentRepository;
 
-        public GetCommentListQueryHandler(ICommentRepository commentRepository, IMapper mapper)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public GetCommentListQueryHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
-            _commentRepository = commentRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public  async Task<GetCommentListQueryViewModel> Handle(GetCommentListQuery request, CancellationToken cancellationToken)
         {
-           var comments =  await _commentRepository.GetAllAsync();
+           var comments =  await _unitOfWork.categories.GetAllAsync();
             return _mapper.Map<GetCommentListQueryViewModel>(comments);
         }
     }

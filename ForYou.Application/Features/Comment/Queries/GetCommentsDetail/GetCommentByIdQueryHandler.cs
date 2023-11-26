@@ -15,20 +15,21 @@ namespace ForYou.Application.Features.Comment.Queries.GetCommentsDetail
         public class GetCommentByIdQueryHandler : IRequestHandler<GetCommentByIdQuery, GetCommentByIdQueryViewModel>
         {
             private readonly IMapper _mapper;
-            private readonly ICommentRepository _commentRepository;
 
-            public GetCommentByIdQueryHandler(ICommentRepository commentRepository, IMapper mapper)
+            private readonly IUnitOfWork _unitOfWork;
+
+            public GetCommentByIdQueryHandler(IMapper mapper, IUnitOfWork unitOfWork)
             {
                 _mapper = mapper;
-                _commentRepository = commentRepository;
+                _unitOfWork = unitOfWork;
             }
 
             public async Task<GetCommentByIdQueryViewModel> Handle(GetCommentByIdQuery request, CancellationToken cancellationToken)
-            {
-                var post = await _commentRepository.GetByIdAsync(request.Id);
+             {
+                    var post = await _unitOfWork.comments.GetByIdAsync(request.Id);
 
-                return _mapper.Map<GetCommentByIdQueryViewModel>(post);
-            }
+                    return _mapper.Map<GetCommentByIdQueryViewModel>(post);
+             }
         
         }
 }

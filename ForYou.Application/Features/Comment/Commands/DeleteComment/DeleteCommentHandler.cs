@@ -12,18 +12,19 @@ namespace ForYou.Application.Handler.Post
 {
     public class DeleteCommentHandler : IRequestHandler<DeleteCommentCommend>
     {
-        private readonly ICommentRepository _commentRepository;
 
-        public DeleteCommentHandler(ICommentRepository commentRepository)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public DeleteCommentHandler(IUnitOfWork unitOfWork)
         {
-            _commentRepository = commentRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task Handle(DeleteCommentCommend request, CancellationToken cancellationToken)
         {
-            var post = await _commentRepository.GetByIdAsync(request.Id);
+            var post = await _unitOfWork.comments.GetByIdAsync(request.Id);
 
-            await _commentRepository.DeleteAsync(post);
+            await _unitOfWork.comments.DeleteAsync(post);
 
         }
     }

@@ -13,18 +13,21 @@ namespace ForYou.Application.Features.Category.Commands.DeleteCategory
     public class DeleteCategoryHandler : IRequestHandler<DeleteCategoryCommend>
     {
 
-        private readonly IGategoryRepository _gategoryRepository;
+        private readonly IMapper _mapper;
 
-        public DeleteCategoryHandler(IGategoryRepository gategoryRepository)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public DeleteCategoryHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            _gategoryRepository = gategoryRepository;
+            _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task Handle(DeleteCategoryCommend request, CancellationToken cancellationToken)
         {
-          var gategory = await _gategoryRepository.GetByIdAsync(request.Id);
+          var gategory = await _unitOfWork.categories.GetByIdAsync(request.Id);
 
-           await _gategoryRepository.DeleteAsync(gategory);
+           await _unitOfWork.categories.DeleteAsync(gategory);
         }
     }
 }

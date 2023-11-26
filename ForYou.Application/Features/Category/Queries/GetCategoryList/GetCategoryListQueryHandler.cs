@@ -15,17 +15,18 @@ namespace ForYou.Application.Features.Category.Queries.GetCategoryList
     {
         private readonly IMapper _mapper;
 
-        private readonly IGategoryRepository _gategoryRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public GetCategoryListQueryHandler(IGategoryRepository gategoryRepository, IMapper mapper)
+        public GetCategoryListQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _gategoryRepository = gategoryRepository;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
+
         public async Task<List<GetCategoryListQueryViewModel>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
         {
-            var allGategory = await _gategoryRepository.GetAllAsync();
+            var allGategory = await _unitOfWork.categories.GetAllAsync();
 
             return _mapper.Map<List<GetCategoryListQueryViewModel>>(allGategory);
         }

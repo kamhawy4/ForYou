@@ -20,6 +20,15 @@ namespace ForYou.Infrastructure
         public DbSet<PostEntity> Posts { get; set; }
         public DbSet<CommentEntity> Comments { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Configure the relationship
+            modelBuilder.Entity<CategoryEntity>()
+                .HasMany(o => o.Posts)
+                .WithOne(oi => oi.Category)
+                .HasForeignKey(oi => oi.CategoryId);
+        }
+
 
     }
 }

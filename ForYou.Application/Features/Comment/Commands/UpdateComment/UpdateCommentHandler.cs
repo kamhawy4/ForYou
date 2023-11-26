@@ -16,19 +16,20 @@ namespace ForYou.Application.Handler.Commands.UpdateComment
     public class UpdateCommentHandler : IRequestHandler<UpdateCommentCommend>
     {
         private readonly IMapper _mapper;
-        private readonly ICommentRepository _commentRepository;
 
-        public UpdateCommentHandler(ICommentRepository commentRepository, IMapper mapper)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public UpdateCommentHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
-            _commentRepository = commentRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task Handle(UpdateCommentCommend request, CancellationToken cancellationToken)
         {
             var post = _mapper.Map<CommentEntity>(request);
 
-            await _commentRepository.UpdateAsync(post);
+            await _unitOfWork.comments.UpdateAsync(post);
         }
     }
 }

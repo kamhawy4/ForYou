@@ -15,6 +15,11 @@ namespace ForYou.Api.Controllers
 
         protected ISender Mediator => _mediator ??= HttpContext.RequestServices.GetRequiredService<ISender>();
 
+
     }
+
+
+  
+
 }
 
