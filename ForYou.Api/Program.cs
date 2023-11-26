@@ -20,7 +20,7 @@ builder.Services.AddMediatR(o => o.RegisterServicesFromAssemblies(Assembly.GetEx
 builder.Services.AddApplicationServices();
 builder.Services.AddDbContext<PostDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnectionString")));
 builder.Services.AddScoped<IHandleAttachment, HandleAttachment>();
-builder.Services.AddAutoMapper(typeof(Program));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

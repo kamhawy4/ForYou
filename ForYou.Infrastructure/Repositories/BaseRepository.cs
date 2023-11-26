@@ -30,15 +30,15 @@ namespace ForYou.Infrastructure.Repositories
           return await _dbContext.Set<T>().ToListAsync();
         }
 
-        public virtual  async Task<T> GetByIdAsync(Guid id)
+        public async Task<T> GetByIdAsync(Guid id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }
 
         public async Task UpdateAsync(T entity)
         {
-            _dbContext.Update(entity);
-            await _dbContext.SaveChangesAsync();
+           _dbContext.Update(entity).State = EntityState.Modified;
+           await _dbContext.SaveChangesAsync();
         }
     }
 }

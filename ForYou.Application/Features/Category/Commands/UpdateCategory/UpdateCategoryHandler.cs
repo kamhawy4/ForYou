@@ -28,9 +28,13 @@ namespace ForYou.Application.Features.Category.Commands.UpdateCategory
 
         public async Task Handle(UpdateCategoryCommend request, CancellationToken cancellationToken)
         {
-            CategoryEntity Category = _mapper.Map<CategoryEntity>(request);
+
+            var Category = await _gategoryRepository.GetByIdAsync(request.Id);
+
+            Category.Name = request.Name;
 
             await _gategoryRepository.UpdateAsync(Category);
+
         }
 
     }

@@ -10,5 +10,6 @@ namespace ForYou.Application.Features.Category.Commands.UpdateCategory
     public class UpdateCategoryCommend : IRequest
     {
         public Guid Id { get; set; }
+        public string Name { get; set; }
     }
 }

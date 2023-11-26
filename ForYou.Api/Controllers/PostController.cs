@@ -36,9 +36,9 @@ namespace ForYou.Api.Controllers
 
 
         [HttpGet("{id}",Name = "GetPostbyId")]
-        public async Task<ActionResult<GetPostByIdQueryViewModel>> GetPostById(Guid Id)
+        public async Task<ActionResult<GetPostByIdQueryViewModel>> GetPostById(Guid id)
         {
-            var getEventDetailQuery = new GetPostByIdQuery() { Id = Id };
+            var getEventDetailQuery = new GetPostByIdQuery() { Id = id };
             return  Ok( await _mediator.Send(getEventDetailQuery));
         }
 

@@ -31,9 +31,9 @@ namespace ForYou.Api.Controllers
         }
 
         [HttpGet("{id}", Name = "GetCategorybyId")]
-        public async Task<ActionResult<GetCategoryByIdQueryViewModel>> GetCategoryById(Guid Id)
+        public async Task<ActionResult<GetCategoryByIdQueryViewModel>> GetCategoryById(Guid id)
         {
-            var CategoryById = await Mediator.Send(new GetCategoryByIdQuery() { Id = Id });
+            var CategoryById = await Mediator.Send(new GetCategoryByIdQuery() { Id = id });
             return Ok(CategoryById);
         }
 
@@ -47,9 +47,9 @@ namespace ForYou.Api.Controllers
         }
 
         [HttpDelete("{id}", Name = "DeleteCategoryById")]
-        public async Task<ActionResult> DeleteCategoryById(Guid Id)
+        public async Task<ActionResult> DeleteCategoryById(Guid id)
         {
-            await Mediator.Send(new DeleteCategoryCommend() { Id = Id });
+            await Mediator.Send(new DeleteCategoryCommend() { Id = id });
             return NoContent();
         }
 

@@ -8,7 +8,8 @@ namespace ForYou.Application.Features.Category.Queries.GetCategoryDetail
 {
     public class GetCategoryByIdQueryViewModel
     {
-        public int Id { get; set; }
-        public int name { get; set; }
+        public Guid id { get; set; }
+        public string? name { get; set; }
+        public DateTime? publishedDate { get; set; }
     }
 }

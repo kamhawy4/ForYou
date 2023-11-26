@@ -5,9 +5,9 @@ using System;
 
 namespace ForYou.Domain.Contracts
 {
-	public interface IGategoryRepository : IAsyncRepository<CategoryEntity> , IScopedService
+    public interface IGategoryRepository : IAsyncRepository<CategoryEntity>, IScopedService
     {
-	  
-	}
+
+    }
 }
 
