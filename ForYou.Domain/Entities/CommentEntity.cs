@@ -6,8 +6,11 @@
         public string Comment { get; set; } = null!;
         public DateTime PublishedDate { get; set; }
 
-        public string UserId { get; set; }
-        public UserEntity UserEntity { get; set; }
+        public Guid UserId { get; set; }
+        public UserEntity Users { get; set; }
+
+        public Guid PostId { get; set; }
+        public PostEntity Posts { get; set; }
 
 
     }

@@ -8,12 +8,17 @@ namespace ForYou.Domain.Entities
         public string Title { get; set; } = null!;
         public string Content { get; set; } = null!;
         public string Image { get; set; } = null!;
-        public string Author { get; set; } = null!;
-        public DateTime PublishedDate { get; set; }
-
 
         public Guid CategoryId { get; set; }
         public CategoryEntity Category { get; set; }
+
+        public string AuthorId { get; set; }
+        public UserEntity User { get; set; }
+
+        public List<CommentEntity> Comments { get; set; }
+
+        public DateTime PublishedDate { get; set; }
+
 
     }
 }

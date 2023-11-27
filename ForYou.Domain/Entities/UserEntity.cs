@@ -9,6 +9,11 @@
             public string Mobile { get; set; } = null!;
             public string Password { get; set; } = null!;
             public DateTime PublishedDate { get; set; }
+
+            public List<PostEntity> Posts { get; set; }
+
+            public List<CommentEntity> Comments { get; set; }
+
     }
 }
 

@@ -27,7 +27,21 @@ namespace ForYou.Infrastructure
                 .HasMany(o => o.Posts)
                 .WithOne(oi => oi.Category)
                 .HasForeignKey(oi => oi.CategoryId);
+
+
+            modelBuilder.Entity<UserEntity>()
+               .HasMany(o => o.Posts)
+               .WithOne(oi => oi.User)
+               .HasForeignKey(oi => oi.AuthorId);
+
+
+            modelBuilder.Entity<CommentEntity>()
+               .HasOne(o => o.Posts);
+
+
         }
+
+
 
 
     }
