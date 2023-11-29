@@ -17,14 +17,11 @@ namespace ForYou.Application.Handler.Post
         private readonly IHandleAttachment _attachment;
         private readonly IUnitOfWork _unitOfWork;
 
-
         public CreatePostHandler(IMapper mapper, IHandleAttachment attachment, IUnitOfWork unitOfWork) {
             _mapper = mapper;
             _attachment = attachment;
             _unitOfWork = unitOfWork;
-
         }
-
 
         public async Task<Guid> Handle(CreatePostCommend request, CancellationToken cancellationToken)
         {

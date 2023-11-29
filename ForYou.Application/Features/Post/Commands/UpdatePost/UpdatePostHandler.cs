@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ForYou.Application.Command.Post;
+using ForYou.Application.Features.Category.Commands.UpdateCategory;
 using ForYou.Application.Interfaces;
 using ForYou.Domain.Contracts;
 using ForYou.Domain.Entities;
@@ -28,9 +29,15 @@ namespace ForYou.Application.Handler.Post
 
         public async Task Handle(UpdatePostCommend request, CancellationToken cancellationToken)
         {
-            var post = _mapper.Map<PostEntity>(request);
+            var post = await _unitOfWork.posts.GetByIdAsync(request.Id);
+
+            post.Title = request.Title;
+            post.Content = request.Content;
+            post.Image = request.Image;
 
             await _unitOfWork.posts.UpdateAsync(post);
+
         }
+
     }
 }

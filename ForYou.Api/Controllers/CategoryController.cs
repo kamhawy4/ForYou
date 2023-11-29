@@ -39,13 +39,13 @@ namespace ForYou.Api.Controllers
         }
 
 
-
         [HttpPut(Name = "UpdateCategory")]
         public async Task<ActionResult> UpdateCategory([FromBody] UpdateCategoryCommend updateCategoryCommend)
         {
             await Mediator.Send(updateCategoryCommend);
             return NoContent();
         }
+
 
         [HttpDelete("{id}", Name = "DeleteCategoryById")]
         public async Task<ActionResult> DeleteCategoryById(Guid id)

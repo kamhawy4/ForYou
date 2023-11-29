@@ -42,9 +42,9 @@ namespace ForYou.Api.Controllers
 
 
         [HttpGet("{id}", Name = "GetCommentbyId")]
-        public async Task<ActionResult<GetCommentByIdQueryViewModel>> GetCommentById(Guid Id)
+        public async Task<ActionResult<GetCommentByIdQueryViewModel>> GetCommentById(Guid id)
         {
-            var getEventDetailQuery = new GetCommentByIdQuery() { Id = Id };
+            var getEventDetailQuery = new GetCommentByIdQuery() { Id = id };
             return Ok(await _mediator.Send(getEventDetailQuery));
         }
 

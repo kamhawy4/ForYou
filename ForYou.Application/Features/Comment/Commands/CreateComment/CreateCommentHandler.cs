@@ -34,14 +34,16 @@ namespace ForYou.Application.Handler.Commands.CreateComment
 
             CreateCommentValidator validator = new CreateCommentValidator();
 
-            //var result = await validator.ValidateAsync(comments);
+            var result = await validator.ValidateAsync(request);
 
-            //if (result.Errors.Any()) throw new Exception("comment not found");
+            if (result.Errors.Any()) throw new Exception("comment not found");
 
-           // await _unitOfWork.comments.AddAsync(comments);
+            await _unitOfWork.comments.AddAsync(comments);
 
             return comments.Id;
 
         }
+
+
     }
 }

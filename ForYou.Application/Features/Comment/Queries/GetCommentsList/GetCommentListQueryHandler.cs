@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ForYou.Application.Contracts;
+using ForYou.Application.Features.Category.Queries.GetCategoryList;
 using ForYou.Application.Features.Post.Queries.GetPostDetail;
 using ForYou.Application.Interfaces;
 using ForYou.Domain.Contracts;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ForYou.Application.Features.Comment.Queries.GetCommentsList
 {
-    public class GetCommentListQueryHandler : IRequestHandler<GetCommentListQuery, GetCommentListQueryViewModel>
+    public class GetCommentListQueryHandler : IRequestHandler<GetCommentListQuery, List<GetCommentListQueryViewModel>>
     {
         private readonly IMapper _mapper;
 
@@ -24,10 +25,12 @@ namespace ForYou.Application.Features.Comment.Queries.GetCommentsList
             _unitOfWork = unitOfWork;
         }
 
-        public  async Task<GetCommentListQueryViewModel> Handle(GetCommentListQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetCommentListQueryViewModel>> Handle(GetCommentListQuery request, CancellationToken cancellationToken)
         {
-           var comments =  await _unitOfWork.categories.GetAllAsync();
-            return _mapper.Map<GetCommentListQueryViewModel>(comments);
+            var comments = await _unitOfWork.comments.GetAllAsync();
+
+            return _mapper.Map<List<GetCommentListQueryViewModel>>(comments);
+
         }
     }
 }

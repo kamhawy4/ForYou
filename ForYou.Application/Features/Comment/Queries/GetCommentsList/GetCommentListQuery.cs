@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ForYou.Application.Features.Comment.Queries.GetCommentsList
 {
-    public class GetCommentListQuery : IRequest<GetCommentListQueryViewModel>
+    public class GetCommentListQuery :IRequest<List<GetCommentListQueryViewModel>>
     {
 
     }

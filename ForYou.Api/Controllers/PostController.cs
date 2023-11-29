@@ -52,8 +52,8 @@ namespace ForYou.Api.Controllers
 
 
         [HttpDelete("{id}",Name = "DeletePostById")]
-        public  async Task<ActionResult> DeletePostById(Guid Id) { 
-            await _mediator.Send(new DeletePostCommend() { Id = Id });
+        public  async Task<ActionResult> DeletePostById(Guid id) { 
+            await _mediator.Send(new DeletePostCommend() { Id = id });
             return NoContent();
         }
 
