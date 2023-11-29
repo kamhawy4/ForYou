@@ -50,19 +50,20 @@ namespace ForYou.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("PostId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("PublishedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserEntityId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserEntityId");
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
                 });
@@ -72,10 +73,6 @@ namespace ForYou.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
@@ -95,9 +92,14 @@ namespace ForYou.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Posts");
                 });
@@ -138,13 +140,21 @@ namespace ForYou.Infrastructure.Migrations
 
             modelBuilder.Entity("ForYou.Domain.Entities.CommentEntity", b =>
                 {
-                    b.HasOne("ForYou.Domain.Entities.UserEntity", "UserEntity")
-                        .WithMany()
-                        .HasForeignKey("UserEntityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("ForYou.Domain.Entities.PostEntity", "Posts")
+                        .WithMany("Comments")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("UserEntity");
+                    b.HasOne("ForYou.Domain.Entities.UserEntity", "Users")
+                        .WithMany("Comments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Posts");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("ForYou.Domain.Entities.PostEntity", b =>
@@ -152,14 +162,34 @@ namespace ForYou.Infrastructure.Migrations
                     b.HasOne("ForYou.Domain.Entities.CategoryEntity", "Category")
                         .WithMany("Posts")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ForYou.Domain.Entities.UserEntity", "User")
+                        .WithMany("Posts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ForYou.Domain.Entities.CategoryEntity", b =>
                 {
+                    b.Navigation("Posts");
+                });
+
+            modelBuilder.Entity("ForYou.Domain.Entities.PostEntity", b =>
+                {
+                    b.Navigation("Comments");
+                });
+
+            modelBuilder.Entity("ForYou.Domain.Entities.UserEntity", b =>
+                {
+                    b.Navigation("Comments");
+
                     b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618

@@ -9,11 +9,12 @@ namespace ForYou.Domain.Entities
         public string Content { get; set; } = null!;
         public string Image { get; set; } = null!;
 
+
+        public Guid UserId { get; set; }
+        public UserEntity User { get; set; }
+
         public Guid CategoryId { get; set; }
         public CategoryEntity Category { get; set; }
-
-        public string AuthorId { get; set; }
-        public UserEntity User { get; set; }
 
         public List<CommentEntity> Comments { get; set; }
 

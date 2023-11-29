@@ -15,34 +15,39 @@ namespace ForYou.Infrastructure
         {
         }
 
-        public DbSet<UserEntity> Users { get; set; }
         public DbSet<CategoryEntity> Categories { get; set; }
-        public DbSet<PostEntity> Posts { get; set; }
         public DbSet<CommentEntity> Comments { get; set; }
+        public DbSet<PostEntity> Posts { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configure the relationship
-            modelBuilder.Entity<CategoryEntity>()
-                .HasMany(o => o.Posts)
-                .WithOne(oi => oi.Category)
-                .HasForeignKey(oi => oi.CategoryId);
 
+            modelBuilder.Entity<PostEntity>()
+            .HasOne(p => p.User)
+            .WithMany(u => u.Posts)
+            .HasForeignKey(p => p.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<UserEntity>()
-               .HasMany(o => o.Posts)
-               .WithOne(oi => oi.User)
-               .HasForeignKey(oi => oi.AuthorId);
-
+            modelBuilder.Entity<PostEntity>()
+                .HasOne(p => p.Category)
+                .WithMany(c => c.Posts)
+                .HasForeignKey(p => p.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<CommentEntity>()
-               .HasOne(o => o.Posts);
+                .HasOne(c => c.Users)
+                .WithMany(u => u.Comments)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<CommentEntity>()
+                .HasOne(c => c.Posts)
+                .WithMany(p => p.Comments)
+                .HasForeignKey(c => c.PostId)
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
-
-
-
 
     }
 }

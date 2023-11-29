@@ -27,7 +27,7 @@ namespace ForYou.Application.Features.Category.Queries.GetCategoryDetail
 
         public async Task<GetCategoryByIdQueryViewModel> Handle(GetCategoryByIdQuery request, CancellationToken cancellationToken)
         {
-            var gategory = _unitOfWork.categories.GetByIdAsync(request.Id);
+            var gategory =  await _unitOfWork.categories.GetByIdAsync(request.Id);
 
             return _mapper.Map<GetCategoryByIdQueryViewModel>(gategory);
         }
