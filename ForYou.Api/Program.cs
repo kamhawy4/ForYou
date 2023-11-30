@@ -20,6 +20,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(o => o.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddApplicationServices();
 builder.Services.AddDbContext<PostDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnectionString")));
+
 builder.Services.AddScoped<IHandleAttachment, HandleAttachment>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 

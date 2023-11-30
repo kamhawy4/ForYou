@@ -14,6 +14,7 @@ namespace ForYou.Domain.Entities
         public UserEntity User { get; set; }
 
         public Guid CategoryId { get; set; }
+         
         public CategoryEntity Category { get; set; }
 
         public List<CommentEntity> Comments { get; set; }

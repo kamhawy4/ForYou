@@ -58,9 +58,9 @@ namespace ForYou.Api.Controllers
 
 
         [HttpDelete("{id}", Name = "DeleteCommentById")]
-        public async Task<ActionResult> DeleteCommentById(Guid Id)
+        public async Task<ActionResult> DeleteCommentById(Guid id)
         {
-            await _mediator.Send(new DeleteCommentCommend() { Id = Id });
+            await _mediator.Send(new DeleteCommentCommend() { Id = id });
             return NoContent();
         }
 

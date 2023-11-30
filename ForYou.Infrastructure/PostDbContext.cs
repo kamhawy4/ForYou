@@ -20,6 +20,7 @@ namespace ForYou.Infrastructure
         public DbSet<PostEntity> Posts { get; set; }
         public DbSet<UserEntity> Users { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

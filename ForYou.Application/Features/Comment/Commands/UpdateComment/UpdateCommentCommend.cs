@@ -9,6 +9,7 @@ namespace ForYou.Application.Command.Commands.UpdateComment
 {
     public class UpdateCommentCommend :IRequest
     {
-
+        public Guid Id { get; set; }
+        public string Comment { get; set; }
     }
 }
