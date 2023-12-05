@@ -8,8 +8,7 @@ namespace ForYou.Domain.Entities
         public string Title { get; set; } = null!;
         public string Content { get; set; } = null!;
         public string Image { get; set; } = null!;
-
-
+        
         public Guid UserId { get; set; }
         public UserEntity User { get; set; }
 

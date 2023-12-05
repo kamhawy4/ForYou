@@ -12,7 +12,5 @@
         public Guid PostId { get; set; }
         public PostEntity Posts { get; set; }
 
-
-
     }
 }

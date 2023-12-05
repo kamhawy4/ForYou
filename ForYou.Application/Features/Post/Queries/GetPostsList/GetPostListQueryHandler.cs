@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace ForYou.Application.Features.Post.Queries.GetPostDetail
 {
@@ -22,10 +23,11 @@ namespace ForYou.Application.Features.Post.Queries.GetPostDetail
             _unitOfWork = unitOfWork;
         }
 
-
         public async Task<List<GetPostListQueryViewModel>> Handle(GetPostListQuery request, CancellationToken cancellationToken)
         {
-            var allPosts = await _unitOfWork.posts.GetAllAsync();
+            var allPosts = await _unitOfWork.posts.Entities.Include(_=>_.Category)
+                                                            .Include(o=>o.User)
+                                                            .ToListAsync();
             return _mapper.Map<List<GetPostListQueryViewModel>>(allPosts);
         }
     }

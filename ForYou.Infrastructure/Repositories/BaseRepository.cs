@@ -6,13 +6,18 @@ namespace ForYou.Infrastructure.Repositories
 {
     public class BaseRepository<T> : IAsyncRepository<T> where T : class
     {
+
         protected readonly PostDbContext _dbContext;
+
         public BaseRepository(PostDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public  async Task<T> AddAsync(T entity)
+        public IQueryable<T> Entities => _dbContext.Set<T>();
+
+
+        public async Task<T> AddAsync(T entity)
         {
            await  _dbContext.Set<T>().AddAsync(entity);
            await _dbContext.SaveChangesAsync();

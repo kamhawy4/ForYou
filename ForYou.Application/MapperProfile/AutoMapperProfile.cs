@@ -18,6 +18,7 @@ using ForYou.Application.Command.Commands.DeleteComment;
 using ForYou.Application.Command.Commands.UpdateComment;
 using ForYou.Application.Features.Post.Queries.GetPostDetail;
 using ForYou.Application.Command.Post;
+using ForYou.Application.Features.Post.Queries.GetPostsList;
 
 namespace ForYou.Application.MapperProfile
 {
@@ -39,11 +40,14 @@ namespace ForYou.Application.MapperProfile
             CreateMap<CommentEntity, UpdateCommentCommend>().ReverseMap();
 
 
+
             CreateMap<PostEntity, GetPostByIdQueryViewModel>().ReverseMap();
             CreateMap<PostEntity, GetPostListQueryViewModel>().ReverseMap();
             CreateMap<PostEntity, CreatePostCommend>().ReverseMap();
             CreateMap<PostEntity, DeletePostCommend>().ReverseMap();
             CreateMap<PostEntity, UpdatePostCommend>().ReverseMap();
+            CreateMap<CategoryEntity, CategoryDto>().ReverseMap();
+            CreateMap<UserEntity, UserDto>().ReverseMap();
 
 
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ForYou.Application.Features.Post.Queries.GetPostsList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace ForYou.Application.Features.Post.Queries.GetPostDetail
         public string Title { get; set; }
         public string Content { get; set; }
         public string Image { get; set; }
-        public string Author { get; set; }
+        public UserDto User { get; set; }
         public CategoryDto Category { get; set; }
     }
 }

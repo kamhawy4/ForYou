@@ -8,7 +8,7 @@ namespace ForYou.Infrastructure
     {
         public PostRepository(PostDbContext dbContext) : base(dbContext)
         {
-
+            
         }
     }
 }
