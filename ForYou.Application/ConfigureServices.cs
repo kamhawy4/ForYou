@@ -11,7 +11,7 @@ namespace ForYou.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddServicesOfType<IScopedService>();
-            services.AddServicesWithAttributeOfType<ScopedServiceAttribute>();
+            //services.AddServicesWithAttributeOfType<ScopedServiceAttribute>();
             services.AddMediatR(option =>
             {
                 option.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
