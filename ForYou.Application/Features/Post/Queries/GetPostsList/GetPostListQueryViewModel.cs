@@ -1,4 +1,5 @@
 ﻿using ForYou.Application.Features.Post.Queries.GetPostsList;
+using ForYou.SharedServices.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

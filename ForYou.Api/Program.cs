@@ -7,6 +7,7 @@ using ForYou.Application;
 using ForYou.Application.Interfaces;
 using ForYou.Domain.Contracts;
 using ForYou.Infrastructure.Repositories;
+using ForYou.Application.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,10 @@ builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
+
+var loggerFactory = app.Services.GetService<ILoggerFactory>();
+loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"].ToString());
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -36,6 +41,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<CustomExceptionHandlingMiddleware>();
 
 app.MapControllers();
 

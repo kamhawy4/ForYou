@@ -1,6 +1,7 @@
 ﻿using ForYou.Application.Command.Post;
 using ForYou.Application.Features.Post.Queries.GetPostDetail;
 using ForYou.Application.Features.Post.Queries.GetPostsList;
+using ForYou.SharedServices.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,10 +27,9 @@ namespace ForYou.Api.Controllers
         }
 
         [HttpGet("all", Name = "GetALLPosts")]
-        public async Task<ActionResult<List<GetPostListQueryViewModel>>> GetAllPosts()
+        public async Task<ActionResult<PaginatedResponseList<GetPostListQueryViewModel>>> GetAllPosts([FromQuery] GetPostListQuery query)
         {
-
-           var allposts  = await _mediator.Send(new GetPostListQuery());
+           var allposts  = await _mediator.Send(query);
 
             return Ok(allposts);
         }
