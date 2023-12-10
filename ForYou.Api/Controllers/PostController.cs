@@ -1,6 +1,7 @@
 ﻿using ForYou.Application.Command.Post;
 using ForYou.Application.Features.Post.Queries.GetPostDetail;
 using ForYou.Application.Features.Post.Queries.GetPostsList;
+using ForYou.Infrastructure.Specification;
 using ForYou.SharedServices.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -57,6 +58,14 @@ namespace ForYou.Api.Controllers
             return NoContent();
         }
 
-       
+        [HttpGet("{title}",Name = "PostsByTitle")]
+        public async Task<IActionResult> PostsByTitle()
+        {
+            var specification = new PostsBynameSpecification();
+            var developers = _repository.FindWithSpecificationPattern(specification);
+            return Ok(developers);
+        }
+
+
     }
 }
