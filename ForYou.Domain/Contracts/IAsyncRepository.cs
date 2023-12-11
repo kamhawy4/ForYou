@@ -1,4 +1,5 @@
 ﻿using AspNetCore.ServiceRegistration.Dynamic;
+using ForYou.Domain.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;

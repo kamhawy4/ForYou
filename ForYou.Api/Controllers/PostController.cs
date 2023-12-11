@@ -58,12 +58,11 @@ namespace ForYou.Api.Controllers
             return NoContent();
         }
 
-        [HttpGet("{title}",Name = "PostsByTitle")]
-        public async Task<IActionResult> PostsByTitle()
+        [HttpGet("{id}", Name = "OrderByPost")]
+        public async Task<ActionResult<GetPostByIdQueryViewModel>> OrderByPost(Guid id)
         {
-            var specification = new PostsBynameSpecification();
-            var developers = _repository.FindWithSpecificationPattern(specification);
-            return Ok(developers);
+            var getEventDetailQuery = new GetPostByIdQuery() { Id = id };
+            return Ok(await _mediator.Send(getEventDetailQuery));
         }
 
 

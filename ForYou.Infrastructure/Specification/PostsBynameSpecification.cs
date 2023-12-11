@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ForYou.Infrastructure.Specification
 {
-    public class PostsBynameSpecification : BaseSpecifcation<PostEntity>
+    public class PostsBynameSpecification : Specifcation<PostEntity>
     {
-        public PostsBynameSpecification()
+        public PostsBynameSpecification(Guid id) : base(x=>x.Id == id)
         {
-            AddOrderByDescending(x => x.Title);
+            AddOrderByDescending(x => x.PublishedDate);
         }
     }
 }

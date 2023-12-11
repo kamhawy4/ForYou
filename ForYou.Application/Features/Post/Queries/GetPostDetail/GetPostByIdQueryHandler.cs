@@ -22,6 +22,7 @@ namespace ForYou.Application.Features.Post.Queries.GetPostDetail
 
         public async Task<GetPostByIdQueryViewModel> Handle(GetPostByIdQuery request, CancellationToken cancellationToken)
         {
+
             var post = await _unitOfWork.posts.GetByIdAsync(request.Id);
 
             return _mapper.Map<GetPostByIdQueryViewModel>(post);

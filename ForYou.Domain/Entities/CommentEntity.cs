@@ -1,6 +1,6 @@
 ﻿namespace ForYou.Domain.Entities
 {
-    public class CommentEntity
+    public class CommentEntity : Entity
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Comment { get; set; } = null!;

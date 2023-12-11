@@ -1,6 +1,6 @@
 ﻿namespace ForYou.Domain.Entities
 {
-    public class CategoryEntity
+    public class CategoryEntity : Entity
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; } = null!;

@@ -1,4 +1,7 @@
 ﻿using ForYou.Application.Contracts;
+using ForYou.Domain.Contracts;
+using ForYou.Domain.Entities;
+using ForYou.Infrastructure.Specification;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -45,5 +48,7 @@ namespace ForYou.Infrastructure.Repositories
            _dbContext.Update(entity).State = EntityState.Modified;
            await _dbContext.SaveChangesAsync();
         }
+
+
     }
 }
