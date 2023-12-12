@@ -4,7 +4,6 @@ namespace ForYou.Domain.Entities
 {
 	public class UserEntity : IdentityUser
     {
-            public Guid Id { get; set; } = Guid.NewGuid();
             public string FirstName { get; set; } = null!;
             public string LastName { get; set; } = null!;
 

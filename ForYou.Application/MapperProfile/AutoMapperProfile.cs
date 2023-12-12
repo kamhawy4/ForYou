@@ -32,14 +32,11 @@ namespace ForYou.Application.MapperProfile
             CreateMap<CategoryEntity, DeleteCategoryCommend>().ReverseMap();
             CreateMap<CategoryEntity, UpdateCategoryCommend>().ReverseMap();
 
-
             CreateMap<CommentEntity, GetCommentByIdQueryViewModel>().ReverseMap();
             CreateMap<CommentEntity, GetCommentListQueryViewModel>().ReverseMap();
             CreateMap<CommentEntity, CreateCommentCommend>().ReverseMap();
             CreateMap<CommentEntity, DeleteCommentCommend>().ReverseMap();
             CreateMap<CommentEntity, UpdateCommentCommend>().ReverseMap();
-
-
 
             CreateMap<PostEntity, GetPostByIdQueryViewModel>().ReverseMap();
             CreateMap<PostEntity, GetPostListQueryViewModel>().ReverseMap();

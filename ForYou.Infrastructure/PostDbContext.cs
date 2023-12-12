@@ -1,18 +1,15 @@
 ﻿using ForYou.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ForYou.Infrastructure
 {
-    public class PostDbContext : DbContext
+    public class PostDbContext : IdentityDbContext<UserEntity>
     {
         public PostDbContext(DbContextOptions<PostDbContext> options)
        : base(options)
         {
+
         }
 
         public DbSet<CategoryEntity> Categories { get; set; }

@@ -19,7 +19,7 @@ namespace ForYou.Infrastructure.Repositories
             categories = new BaseRepository<CategoryEntity>(_context);
             posts = new BaseRepository<PostEntity>(_context);
             comments = new BaseRepository<CommentEntity>(_context);
-            users = new BaseRepository<UserEntity>(_context);
+            users = new UserRepository(_context);
         }
 
         public IAsyncRepository<CategoryEntity> categories  { get; private set; }
@@ -28,7 +28,7 @@ namespace ForYou.Infrastructure.Repositories
 
         public IAsyncRepository<CommentEntity> comments { get; private set; }
 
-        public IAsyncRepository<UserEntity> users { get; private set; }
+        public IUserRepository<UserEntity> users { get; private set; }
 
         public int CommitChanges()
         {

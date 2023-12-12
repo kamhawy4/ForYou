@@ -13,7 +13,7 @@ namespace ForYou.Domain.Contracts
         IAsyncRepository<CategoryEntity> categories {  get; }
         IAsyncRepository<PostEntity> posts { get; }
         IAsyncRepository<CommentEntity> comments { get; }
-        IAsyncRepository<UserEntity> users { get; }
+        IUserRepository<UserEntity> users { get; }
         int CommitChanges();
     }
 }

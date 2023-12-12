@@ -10,6 +10,9 @@ using ForYou.Infrastructure.Repositories;
 using ForYou.Application.Middleware;
 using ForYou.SharedServices.Helper;
 using Microsoft.Extensions.Configuration;
+using ForYou.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +25,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(o => o.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddApplicationServices();
 builder.Services.AddDbContext<PostDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnectionString")));
-
+builder.Services.AddIdentity<UserEntity, IdentityRole>().AddEntityFrameworkStores<PostDbContext>();
 builder.Services.AddScoped<IHandleAttachment, HandleAttachment>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
