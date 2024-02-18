@@ -4,12 +4,14 @@ using ForYou.Application.Features.Post.Queries.GetPostsList;
 using ForYou.Infrastructure.Specification;
 using ForYou.SharedServices.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ForYou.Api.Controllers
 {
     [ApiController]
     [Route("api/posts")]
+    [Authorize]
     public class PostController : ControllerBase
     {
 
@@ -56,13 +58,6 @@ namespace ForYou.Api.Controllers
         public  async Task<ActionResult> DeletePostById(Guid id) { 
             await _mediator.Send(new DeletePostCommend() { Id = id });
             return NoContent();
-        }
-
-        [HttpGet("{id}", Name = "OrderByPost")]
-        public async Task<ActionResult<GetPostByIdQueryViewModel>> OrderByPost(Guid id)
-        {
-            var getEventDetailQuery = new GetPostByIdQuery() { Id = id };
-            return Ok(await _mediator.Send(getEventDetailQuery));
         }
 
 
