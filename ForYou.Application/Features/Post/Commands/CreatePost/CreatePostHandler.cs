@@ -37,7 +37,7 @@ namespace ForYou.Application.Handler.Post
  
             await _unitOfWork.posts.AddAsync(post);
 
-            return post.Id;
+            return post.PostId;
 
         }
 

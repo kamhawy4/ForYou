@@ -40,7 +40,7 @@ namespace ForYou.Application.Handler.Commands.CreateComment
 
             await _unitOfWork.comments.AddAsync(comments);
 
-            return comments.Id;
+            return comments.CommentId;
 
         }
 

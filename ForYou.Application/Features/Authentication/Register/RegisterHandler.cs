@@ -35,7 +35,7 @@ namespace ForYou.Application.Features.Authentication.Register
 
             await _unitOfWork.categories.AddAsync(category);
 
-            return category.Id;
+            return category.CategoryId;
         }
     }
 }

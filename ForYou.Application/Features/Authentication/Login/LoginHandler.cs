@@ -1,21 +1,9 @@
 ﻿using AutoMapper;
-using ForYou.Application.Command.Post;
-using ForYou.Application.Command.Post.CreatePost;
-using ForYou.Application.Contracts;
-using ForYou.Application.Features.Authentication.Register;
-using ForYou.Application.Features.Category.Commands.CreateCategory;
-using ForYou.Application.Interfaces;
-using ForYou.Application.Services.Interfaces.ActiveDirectory;
+using ForYou.Application.Services.Interfaces;
 using ForYou.Domain.Contracts;
-using ForYou.Domain.Entities;
-using ForYou.SharedServices.Interfaces;
 using ForYou.SharedServices.Models;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
 
 namespace ForYou.Application.Features.Authentication.Login
 {
@@ -23,25 +11,34 @@ namespace ForYou.Application.Features.Authentication.Login
     {
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
-        private readonly IAuthenticatService _authenticatService;
+        // private readonly IAuthenticatService _authenticatService;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IWebTokenService _webTokenService;
 
-
-        public LoginHandler(IConfiguration configuration, IMapper mapper,IAuthenticatService authenticatService, IUnitOfWork unitOfWork)
+        public LoginHandler(IConfiguration configuration, IMapper mapper, IUnitOfWork unitOfWork, IWebTokenService webTokenService)
         {
             _configuration = configuration;
-            _authenticatService = authenticatService;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _webTokenService = webTokenService;
         }
 
         public async Task<TResponse<LoginResponse>> Handle(LoginCommend request, CancellationToken cancellationToken)
         {
-           await _authenticatService.IsAuthenticated(request.Email, request.Password);
-           var user = await _unitOfWork.users.GetUserByUsername(request.Email);
-            user.
+            //var checkUser = await _authenticatService.IsAuthenticated(request.Email, request.Password);
 
+            try
+            {
+                var user = await _unitOfWork.users.GetUserByEmail(request.Email);
 
+                var loginResult = user.MappToLogin(_webTokenService.GetToken(user));
+
+                return TResponse<LoginResponse>.Success(loginResult);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }

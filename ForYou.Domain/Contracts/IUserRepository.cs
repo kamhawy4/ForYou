@@ -12,6 +12,6 @@ namespace ForYou.Domain.Contracts
 
         Task<UserEntity> Reqister(UserEntity entity);
 
-        Task<UserEntity> GetUserByUsername(string Email);
+        Task<UserEntity> GetUserByEmail(string Email);
     }
 }

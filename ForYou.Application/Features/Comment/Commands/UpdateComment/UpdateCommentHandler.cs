@@ -21,7 +21,7 @@ namespace ForYou.Application.Handler.Commands.UpdateComment
         {
             var comments = await _unitOfWork.comments.GetByIdAsync(request.Id);
 
-            comments.Comment = request.Comment;
+            comments.CommentName = request.Comment;
 
             await _unitOfWork.comments.UpdateAsync(comments);
 

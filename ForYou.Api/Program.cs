@@ -30,7 +30,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(o => o.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddApplicationServices();
 builder.Services.AddDbContext<PostDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnectionString")));
-builder.Services.AddIdentity<UserEntity, IdentityRole>().AddEntityFrameworkStores<PostDbContext>();
 builder.Services.AddScoped<IHandleAttachment, HandleAttachment>();
 builder.Services.AddScoped<IWebTokenService, WebTokenService>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();

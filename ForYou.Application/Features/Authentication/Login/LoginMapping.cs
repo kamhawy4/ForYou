@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ForYou.Application.Features.Authentication.Login
 {
-    public static class MappToLogin
+    public static class LoginMapping
     {
         public static LoginResponse MappToLogin(this UserEntity user, string token)
         {
@@ -15,7 +15,6 @@ namespace ForYou.Application.Features.Authentication.Login
             {
                 Email = user.Email,
                 Token = token,
-                UserName = user.UserName,
             };
         }
     }

@@ -9,7 +9,7 @@ namespace ForYou.Infrastructure.Specification
 {
     public class PostsBynameSpecification : Specifcation<PostEntity>
     {
-        public PostsBynameSpecification(Guid id) : base(x=>x.Id == id)
+        public PostsBynameSpecification(Guid id) : base(x=>x.PostId == id)
         {
             AddOrderByDescending(x => x.PublishedDate);
         }

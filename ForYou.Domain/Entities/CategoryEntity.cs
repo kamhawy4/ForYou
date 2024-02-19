@@ -1,8 +1,11 @@
-﻿namespace ForYou.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ForYou.Domain.Entities
 {
     public class CategoryEntity : Entity
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
+        [Key]
+        public Guid CategoryId { get; set; } = Guid.NewGuid();
         public string Name { get; set; } = null!;
         public DateTime PublishedDate { get; set; }
 

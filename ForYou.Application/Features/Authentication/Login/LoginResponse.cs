@@ -8,9 +8,9 @@ namespace ForYou.Application.Features.Authentication.Login
 {
     public class LoginResponse
     {
-        public string UserName { get; set; }
+        public string FirstName { get; set; }
         public string Email { get; set; }
-        public string MobileNumebr { get; set; }
+        public string Mobile { get; set; }
         public string Token { get; set; }
     }
 }

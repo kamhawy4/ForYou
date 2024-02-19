@@ -1,10 +1,11 @@
 ﻿using ForYou.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ForYou.Infrastructure
 {
-    public class PostDbContext : IdentityDbContext<UserEntity>
+    public class PostDbContext : DbContext
     {
         public PostDbContext(DbContextOptions<PostDbContext> options)
        : base(options)

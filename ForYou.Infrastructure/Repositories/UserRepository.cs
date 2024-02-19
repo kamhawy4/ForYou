@@ -11,9 +11,15 @@ namespace ForYou.Infrastructure.Repositories
 {
     public class UserRepository : BaseRepository<UserEntity>, IUserRepository<UserEntity>
     {
-        public UserRepository( PostDbContext dbContext) : base(dbContext) { }
 
-         protected readonly PostDbContext _dbContext;
+        protected readonly PostDbContext _dbContext;
+
+        public UserRepository(PostDbContext dbContext) : base(dbContext) {
+
+            _dbContext = dbContext;
+
+        }
+
 
         public Task<UserEntity> Login(UserEntity entity)
         {
@@ -25,9 +31,9 @@ namespace ForYou.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<UserEntity> GetUserByUsername(string username)
+        public async Task<UserEntity> GetUserByEmail(string email)
         {
-          return await  _dbContext.Users.FirstOrDefaultAsync(_=>_.UserName == username);
+          return await  _dbContext.Users.FirstOrDefaultAsync(_=>_.Email == email);
         }
     }
 }

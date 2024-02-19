@@ -14,7 +14,7 @@ namespace ForYou.Api.Controllers
 
         [HttpPost(Name = "Login")]
          public async Task<ActionResult<TResponse<LoginResponse>>> Login([FromBody] LoginCommend loginCommend)
-         {
+         { 
             var token  =  await Mediator.Send(loginCommend);
             return Ok(token);
          }
