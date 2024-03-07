@@ -19,7 +19,9 @@ namespace ForYou.Infrastructure.Repositories
             categories = new BaseRepository<CategoryEntity>(_context);
             posts = new BaseRepository<PostEntity>(_context);
             comments = new BaseRepository<CommentEntity>(_context);
+
             users = new UserRepository(_context);
+
         }
 
         public IAsyncRepository<CategoryEntity> categories  { get; private set; }

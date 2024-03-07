@@ -1,17 +1,11 @@
-﻿using ForYou.Domain.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ForYou.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using ForYou.Domain.Entities;
 
 namespace ForYou.Infrastructure.Specification
 {
     public static class SpecificationEvaluator
     {
-        public static IQueryable<TEntity> GetQuery<TEntity>(IQueryable<TEntity> inputQuery, Specifcation<TEntity> spec)  where TEntity : Entity
+        public static IQueryable<TEntity> GetQuery<TEntity>(IQueryable<TEntity> inputQuery, Specifcation<TEntity> spec) where TEntity : Entity
         {
 
             IQueryable<TEntity> query = inputQuery;

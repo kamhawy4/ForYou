@@ -1,17 +1,12 @@
 ﻿using AutoMapper;
-using ForYou.Application.Contracts;
-using ForYou.Application.Features.Category.Queries.GetCategoryDetail;
+using ForYou.Application.Features.Authentication.Login;
 using ForYou.Domain.Contracts;
+using ForYou.SharedServices.Models;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ForYou.Application.Features.Category.Queries.GetCategoryList
 {
-    public class GetCategoryListQueryHandler : IRequestHandler<GetCategoryListQuery, List<GetCategoryListQueryViewModel>>
+    public class GetCategoryListQueryHandler : IRequestHandler<GetCategoryListQuery, TResponse<List<GetCategoryListQueryViewModel>>>
     {
         private readonly IMapper _mapper;
 
@@ -24,11 +19,18 @@ namespace ForYou.Application.Features.Category.Queries.GetCategoryList
         }
 
 
-        public async Task<List<GetCategoryListQueryViewModel>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
+        public async Task<TResponse<List<GetCategoryListQueryViewModel>>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
         {
+           
             var allGategory = await _unitOfWork.categories.GetAllAsync();
 
-            return _mapper.Map<List<GetCategoryListQueryViewModel>>(allGategory);
+            //return _mapper.Map<TResponse<List<GetCategoryListQueryViewModel>>>(allGategory);
+
+            return TResponse<List<GetCategoryListQueryViewModel>>.Success(new List<GetCategoryListQueryViewModel>(
+                  allGategory.MapToGategoryDto()
+                ));
+            
+
         }
     }
 }

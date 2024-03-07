@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DescriptionArMaxLength500" xml:space="preserve">
+    <value>Description Ar MaxLength 500</value>
+  </data>
+  <data name="DescriptionArRequired" xml:space="preserve">
+    <value>Arabic Description Required</value>
+  </data>
+  <data name="DescriptionEnMaxLength500" xml:space="preserve">
+    <value>Description En MaxLength 500</value>
+  </data>
+  <data name="DescriptionEnRequired" xml:space="preserve">
+    <value>English Description Required</value>
+  </data>
+  <data name="DescriptionUrduMaxLength500" xml:space="preserve">
+    <value>Description Urdu MaxLength 500</value>
+  </data>
+  <data name="DescriptionUrduRequired" xml:space="preserve">
+    <value>Urdu Description Required</value>
+  </data>
+  <data name="EndDateTimeRequired" xml:space="preserve">
+    <value>End DateTime Required</value>
+  </data>
+  <data name="IdRequired" xml:space="preserve">
+    <value>Id Required</value>
+  </data>
+  <data name="LatitudeRequired" xml:space="preserve">
+    <value>Latitude Required</value>
+  </data>
+  <data name="LongitudeRequired" xml:space="preserve">
+    <value>Longitude Required</value>
+  </data>
+  <data name="NewsNotFound" xml:space="preserve">
+    <value>News Not Found</value>
+  </data>
+  <data name="SomeThingError" xml:space="preserve">
+    <value>SomeThingError</value>
+  </data>
+  <data name="StartDateTimeRequired" xml:space="preserve">
+    <value>Start DateTime Required</value>
+  </data>
+  <data name="TitleArMaxLength150" xml:space="preserve">
+    <value>Title Ar MaxLength 150</value>
+  </data>
+  <data name="TitleArRequired" xml:space="preserve">
+    <value>Arabic Title Required</value>
+  </data>
+  <data name="TitleEnMaxLength150" xml:space="preserve">
+    <value>Title En MaxLength 150</value>
+  </data>
+  <data name="TitleEnRequired" xml:space="preserve">
+    <value>English Title Required</value>
+  </data>
+  <data name="TitleUrduMaxLength150" xml:space="preserve">
+    <value>Title Urdu MaxLength 150</value>
+  </data>
+  <data name="TitleUrduRequired" xml:space="preserve">
+    <value>Urdu Title Required</value>
+  </data>
+  <data name="MaximumLength" xml:space="preserve">
+    <value>MaximumLength</value>
+  </data>
+  <data name="ThisFiledRequired" xml:space="preserve">
+    <value>ThisFiledRequired</value>
+  </data>
+  <data name="OfferNotFound" xml:space="preserve">
+    <value>Offer Not Found</value>
+  </data>
+  <data name="FailedToUpload" xml:space="preserve">
+    <value>Failed To Upload</value>
+  </data>
+  <data name="CheckExtentionType" xml:space="preserve">
+    <value>File extension must be PNG, JPEG, or JPG.</value>
+  </data>
+  <data name="ClassificationTypeRequired" xml:space="preserve">
+    <value>Classification Type Required</value>
+  </data>
+  <data name="IconRequired" xml:space="preserve">
+    <value>Icon Required</value>
+  </data>
+  <data name="ServiceNotFound" xml:space="preserve">
+    <value>ServiceNotFound</value>
+  </data>
+  <data name="FileExceedSize" xml:space="preserve">
+    <value>Attachment size shouldn`t exceed on {0} mb</value>
+  </data>
+  <data name="FileExtension" xml:space="preserve">
+    <value>Attachment extension should be {0}</value>
+  </data>
+  <data name="MapPlaceNotFound" xml:space="preserve">
+    <value>MapPlace Not Found</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>User Not Found</value>
+  </data>
+  <data name="UserNameArRequired" xml:space="preserve">
+    <value>Arabic User Name Required</value>
+  </data>
+  <data name="UserNameEnMaxLength100" xml:space="preserve">
+    <value>User Name En Max Length 100</value>
+  </data>
+  <data name="NotificationNotFound" xml:space="preserve">
+    <value>Notification not found or was sent </value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Email Required</value>
+  </data>
+  <data name="TourNotFound" xml:space="preserve">
+    <value>Tour Not Found</value>
+  </data>
+  <data name="UserNameArMaxLength100" xml:space="preserve">
+    <value>Arabic UserName Max Length 100</value>
+  </data>
+  <data name="UserNameEnRequired" xml:space="preserve">
+    <value>English User Name Required</value>
+  </data>
+  <data name="UserNameUrduMaxLength100" xml:space="preserve">
+    <value>User Name Urdu Max Length 100</value>
+  </data>
+  <data name="UserNameUrduRequired" xml:space="preserve">
+    <value>User Name Urdu Required</value>
+  </data>
+  <data name="ClassificationNameArRequired" xml:space="preserve">
+    <value>Classification Name Ar is Required</value>
+  </data>
+  <data name="ClassificationNameENRequired" xml:space="preserve">
+    <value>Classification Name EN is Required</value>
+  </data>
+  <data name="ClassificationNameUrduRequired" xml:space="preserve">
+    <value>Classification Name Urdu is Required</value>
+  </data>
+  <data name="ClassificationNotFound" xml:space="preserve">
+    <value>Classification not exist</value>
+  </data>
+  <data name="ClassificationNumberIsRequired" xml:space="preserve">
+    <value>Classification Number Required</value>
+  </data>
+  <data name="ClassificationTypeRequred" xml:space="preserve">
+    <value>Classification Type Is Required</value>
+  </data>
+  <data name="NameArMaxLength150" xml:space="preserve">
+    <value>Name Arabic Max Length is 150</value>
+  </data>
+  <data name="NameENMaxLength150" xml:space="preserve">
+    <value>Name English Max Length is 150</value>
+  </data>
+  <data name="NameUrduMaxLength150" xml:space="preserve">
+    <value>Name Urdu Max Length is 150</value>
+  </data>
+  <data name="ContentArMaxLength2000" xml:space="preserve">
+    <value>Content Arabic MaxLength 2000</value>
+  </data>
+  <data name="ContentArRequired" xml:space="preserve">
+    <value>Content Arabic is required</value>
+  </data>
+  <data name="ContentEnMaxLength2000" xml:space="preserve">
+    <value>Content English MaxLength 2000</value>
+  </data>
+  <data name="ContentEnRequired" xml:space="preserve">
+    <value>Content English is required</value>
+  </data>
+  <data name="ContentUrduMaxLength2000" xml:space="preserve">
+    <value>Content Urdu MaxLength 2000</value>
+  </data>
+  <data name="ContentUrduRequired" xml:space="preserve">
+    <value>Content Urdu is required</value>
+  </data>
+  <data name="UrlIsRequired" xml:space="preserve">
+    <value>UrlIsRequired</value>
+  </data>
+  <data name="AdditionalDetailsArMaxLength500" xml:space="preserve">
+    <value>Additional Details Ar MaxLength 500</value>
+  </data>
+  <data name="AdditionalDetailsEnMaxLength500" xml:space="preserve">
+    <value>Additional Details En MaxLength 500</value>
+  </data>
+  <data name="AdditionalDetailsUrduMaxLength500" xml:space="preserve">
+    <value>Additional Details Urdu MaxLength 500</value>
+  </data>
+  <data name="NotAllowedtodeleteordeactivateThisClassification" xml:space="preserve">
+    <value>Not allowed to execute this action </value>
+  </data>
+  <data name="DescriptionArMaxLength2000" xml:space="preserve">
+    <value>Description Ar Max Length2000</value>
+  </data>
+  <data name="DescriptionEnMaxLength2000" xml:space="preserve">
+    <value>Description En Max Length 2000</value>
+  </data>
+  <data name="DescriptionUrduMaxLength2000" xml:space="preserve">
+    <value>Description Urdu Max Length 2000</value>
+  </data>
+  <data name="PlaceInstructionNotFound" xml:space="preserve">
+    <value>Place Instruction Not Found</value>
+  </data>
+  <data name="PlaceNameArIsRequired" xml:space="preserve">
+    <value>Place Name Ar Is Required</value>
+  </data>
+  <data name="PlaceNameArMaxLength150" xml:space="preserve">
+    <value>Place Name Ar MaxLength 150</value>
+  </data>
+  <data name="PlacenameArRequired" xml:space="preserve">
+    <value>Place name Ar Required</value>
+  </data>
+  <data name="PlaceNameEnIsRequired" xml:space="preserve">
+    <value>Place Name En Is Required</value>
+  </data>
+  <data name="PlaceNameENMaxLength150" xml:space="preserve">
+    <value>Place Name EN MaxLength 150</value>
+  </data>
+  <data name="PlacenameENRequired" xml:space="preserve">
+    <value>Place name EN Required</value>
+  </data>
+  <data name="PlaceNameUrduIsRequired" xml:space="preserve">
+    <value>Place Name Urdu Is Required</value>
+  </data>
+  <data name="PlaceNameUrduMaxLength150" xml:space="preserve">
+    <value>Place Name Urdu Max Length 150</value>
+  </data>
+  <data name="PlacenameUrduRequired" xml:space="preserve">
+    <value>Place name Urdu Required</value>
+  </data>
+  <data name="UserAlreadyExist" xml:space="preserve">
+    <value>User already exist</value>
+  </data>
+  <data name="TranslatorNotFound" xml:space="preserve">
+    <value>TranslatorNotFound</value>
+  </data>
+  <data name="MaximumLength500" xml:space="preserve">
+    <value>MaximumLength500</value>
+  </data>
+  <data name="RatingFrom1To5" xml:space="preserve">
+    <value>Rating From 1 To 5</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Invalid Email</value>
+  </data>
+  <data name="LoginFail" xml:space="preserve">
+    <value>Login Fail</value>
+  </data>
+  <data name="NumberMaxLength10" xml:space="preserve">
+    <value>Number MaxLength 10</value>
+  </data>
+  <data name="NumberRequired" xml:space="preserve">
+    <value>Number Required</value>
+  </data>
+  <data name="MentorNotFound" xml:space="preserve">
+    <value>MentorNotFound</value>
+  </data>
+  <data name="NameArRequired" xml:space="preserve">
+    <value>NameAr Required</value>
+  </data>
+  <data name="NameENRequired" xml:space="preserve">
+    <value>NameEN Required</value>
+  </data>
+  <data name="NameUrduRequired" xml:space="preserve">
+    <value>NameUrdu Required</value>
+  </data>
+  <data name="TransportationNotFound" xml:space="preserve">
+    <value>Transportation Not Found</value>
+  </data>
+  <data name="complaintNotFound" xml:space="preserve">
+    <value>complaintNotFound</value>
+  </data>
+  <data name="ImageIsRequired" xml:space="preserve">
+    <value>Image is required</value>
+  </data>
+  <data name="OrderMustBeValidInteger" xml:space="preserve">
+    <value>Order must be valid number</value>
+  </data>
+  <data name="OrderRequired" xml:space="preserve">
+    <value>Order Is Required</value>
+  </data>
+  <data name="ScreenNotExist" xml:space="preserve">
+    <value>Welcome screen not fount</value>
+  </data>
+  <data name="NotAllowedExtension" xml:space="preserve">
+    <value>NotAllowed Extension</value>
+  </data>
+  <data name="RolesRequired" xml:space="preserve">
+    <value>Roles Required</value>
+  </data>
+  <data name="StoryNotFound" xml:space="preserve">
+    <value>Story Not Found</value>
+  </data>
+  <data name="Length10" xml:space="preserve">
+    <value>Length is 10</value>
+  </data>
+  <data name="NotificationNotActive" xml:space="preserve">
+    <value>Notification Not Active</value>
+  </data>
+  <data name="ActivityMaxLength150" xml:space="preserve">
+    <value>Activity Max Length 150 Ar</value>
+  </data>
+  <data name="ActivityMaxLengthEn150" xml:space="preserve">
+    <value>Activity Max Length 150 En</value>
+  </data>
+  <data name="ActivityMaxLengthUrdu150" xml:space="preserve">
+    <value>Activity Max Length 150 Urdu</value>
+  </data>
+  <data name="investmentOpportunityNotFound" xml:space="preserve">
+    <value>Opportunity Not Found</value>
+  </data>
+  <data name="MaxLength50" xml:space="preserve">
+    <value>Max Length 50</value>
+  </data>
+  <data name="InformationEnMaxLength500" xml:space="preserve">
+    <value>Information En Max Length 500</value>
+  </data>
+  <data name="InformationEnRequired" xml:space="preserve">
+    <value>Information En Required</value>
+  </data>
+  <data name="InformationArMaxLength500" xml:space="preserve">
+    <value>Information Ar Max Length 500</value>
+  </data>
+  <data name="InformationArRequired" xml:space="preserve">
+    <value>Information Ar Required</value>
+  </data>
+  <data name="InformationUrduMaxLength500" xml:space="preserve">
+    <value>Information Urdu Max Length 500</value>
+  </data>
+  <data name="InformationUrduRequired" xml:space="preserve">
+    <value>Information Urdu Required</value>
+  </data>
+  <data name="FoodNotFound" xml:space="preserve">
+    <value>Food Not Found</value>
+  </data>
+  <data name="PostNotFound" xml:space="preserve">
+    <value>Post Not Found</value>
+  </data>
+</root>

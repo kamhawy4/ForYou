@@ -1,23 +1,19 @@
+using ForYou.Application;
+using ForYou.Application.Common.Helpers;
+using ForYou.Application.Middleware;
+using ForYou.Application.Services.Interfaces;
+using ForYou.Domain.Contracts;
 using ForYou.Infrastructure;
-using Microsoft.EntityFrameworkCore;
+using ForYou.Infrastructure.Repositories;
+using ForYou.Infrastructure.Services.Web;
 using ForYou.SharedServices.Interfaces;
 using ForYou.SharedServices.Services;
-using System.Reflection;
-using ForYou.Application;
-using ForYou.Application.Interfaces;
-using ForYou.Domain.Contracts;
-using ForYou.Infrastructure.Repositories;
-using ForYou.Application.Middleware;
-using ForYou.SharedServices.Helper;
-using Microsoft.Extensions.Configuration;
-using ForYou.Domain.Entities;
-using Microsoft.AspNetCore.Identity;
-using ForYou.Application.Services.Interfaces;
-using ForYou.Infrastructure.Services.Web;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,16 +24,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(o => o.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
-builder.Services.AddApplicationServices();
-builder.Services.AddDbContext<PostDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PostConnectionString")));
-builder.Services.AddScoped<IHandleAttachment, HandleAttachment>();
-builder.Services.AddScoped<IWebTokenService, WebTokenService>();
-builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
-
+builder.Services.AddApplicationServicesForInfrastructure(builder.Configuration);
+builder.Services.AddApplicationServicesForApp();
 
 builder.Services.AddSwaggerGen(config =>
 {
-   
+
     // Add the Bearer token security definition
     config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -47,7 +39,7 @@ builder.Services.AddSwaggerGen(config =>
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
-    });
+    }); 
 
     // Require the Bearer token for all requests
     config.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -69,12 +61,9 @@ builder.Services.AddSwaggerGen(config =>
     });
 });
 
-
-builder.Services.Configure<Jwt>(builder.Configuration.GetSection("jwt"));
-
-string encKey = builder.Configuration["jwt:key"]!;
-string issuer = builder.Configuration["jwt:Issuer"]!;
-string audience = builder.Configuration["jwt:Audience"]!;
+string encKey = builder.Configuration["AppSettings:JwtSettings:JwtEncryptionKey"]!;
+string issuer = builder.Configuration["AppSettings:JwtSettings:Issuer"]!;
+string audience = builder.Configuration["AppSettings:JwtSettings:Audience"]!;
 
 builder.Services.AddAuthentication(options =>
 {

@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DescriptionArMaxLength500" xml:space="preserve">
+    <value>الوصف الانجليزى الحد الاقصي للحروف 500حرف</value>
+  </data>
+  <data name="DescriptionArRequired" xml:space="preserve">
+    <value>الوصف العربى مطلوب</value>
+  </data>
+  <data name="DescriptionEnMaxLength500" xml:space="preserve">
+    <value>الوصف العربى الحد الاقصي للحروف 500حرف</value>
+  </data>
+  <data name="DescriptionEnRequired" xml:space="preserve">
+    <value>الوصف الانجليزى مطلوب</value>
+  </data>
+  <data name="DescriptionUrduMaxLength500" xml:space="preserve">
+    <value>الوصف الاردي الحد الاقصي للحروف 500حرف</value>
+  </data>
+  <data name="DescriptionUrduRequired" xml:space="preserve">
+    <value>الوصف الاردى مطلوب</value>
+  </data>
+  <data name="EndDateTimeRequired" xml:space="preserve">
+    <value>تاريخ النهايه مطلوب</value>
+  </data>
+  <data name="IdRequired" xml:space="preserve">
+    <value>الرقم التعريفى مطلوب</value>
+  </data>
+  <data name="LatitudeRequired" xml:space="preserve">
+    <value>خط العرض مطلوب</value>
+  </data>
+  <data name="LongitudeRequired" xml:space="preserve">
+    <value>خط الطول مطلوب</value>
+  </data>
+  <data name="NewsNotFound" xml:space="preserve">
+    <value>الخبر غير موجود</value>
+  </data>
+  <data name="SomeThingError" xml:space="preserve">
+    <value>حدث خطأ ما</value>
+  </data>
+  <data name="StartDateTimeRequired" xml:space="preserve">
+    <value>تاريخ البدايه مطلوب</value>
+  </data>
+  <data name="TitleArMaxLength150" xml:space="preserve">
+    <value>العنوان العربى الحد الاقصي للحروف 150حرف</value>
+  </data>
+  <data name="TitleArRequired" xml:space="preserve">
+    <value>العنوان العربى مطلوب</value>
+  </data>
+  <data name="TitleEnMaxLength150" xml:space="preserve">
+    <value>العنوان الانجليزى الحد الاقصي للحروف 150حرف</value>
+  </data>
+  <data name="TitleEnRequired" xml:space="preserve">
+    <value>العنوان الانجليزى مطلوب</value>
+  </data>
+  <data name="TitleUrduMaxLength150" xml:space="preserve">
+    <value>العنوان الاردى الحد الاقصي للحروف 150حرف</value>
+  </data>
+  <data name="TitleUrduRequired" xml:space="preserve">
+    <value>العنوان الاردى مطلوب</value>
+  </data>
+  <data name="MaximumLength" xml:space="preserve">
+    <value>الحد الاقصى للأحرف غير صحيح</value>
+  </data>
+  <data name="ThisFiledRequired" xml:space="preserve">
+    <value>هذا الحقل اجبارى</value>
+  </data>
+  <data name="OfferNotFound" xml:space="preserve">
+    <value>العرض غير موجود</value>
+  </data>
+  <data name="FailedToUpload" xml:space="preserve">
+    <value>حدث خطأ اثناء تحميل الملف</value>
+  </data>
+  <data name="CheckExtentionType" xml:space="preserve">
+    <value>امتداد الملفات يجب ان ينتهي ب JPEG, JPG or PNG</value>
+  </data>
+  <data name="ClassificationTypeRequired" xml:space="preserve">
+    <value>نوع التصنيف مطلوب</value>
+  </data>
+  <data name="IconRequired" xml:space="preserve">
+    <value>الأيقونة مطلوبة</value>
+  </data>
+  <data name="ServiceNotFound" xml:space="preserve">
+    <value>الخدمة غير موجودة </value>
+  </data>
+  <data name="TheEndDataShouldBeLargerThanToday" xml:space="preserve">
+    <value>التاريخ يجب أن يكون صحيحا</value>
+  </data>
+  <data name="TheEnteredDataShouldBeLargerThanTheStartDate" xml:space="preserve">
+    <value>التاريخ يجب أن يكون صحيحا</value>
+  </data>
+  <data name="FileExceedSize" xml:space="preserve">
+    <value>حجم المرفق يجب ألا يتعدى {0} ميجا</value>
+  </data>
+  <data name="FileExtension" xml:space="preserve">
+    <value>امتداد الملف يجب ان يكون {0}</value>
+  </data>
+  <data name="MapPlaceNotFound" xml:space="preserve">
+    <value>المكان غير موجود</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>المستخدم غير موجود</value>
+  </data>
+  <data name="UserNameArMaxLength100" xml:space="preserve">
+    <value>  إسم المستخدم الحد الاقصي للحروف 100حرف</value>
+  </data>
+  <data name="UserNameArRequired" xml:space="preserve">
+    <value>الإسم العربى مطلوب</value>
+  </data>
+  <data name="NotificationNotFound" xml:space="preserve">
+    <value>الإشعار غير موجود أو تم إرساله</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>البريد الإلكترونى مطلوب</value>
+  </data>
+  <data name="TourNotFound" xml:space="preserve">
+    <value>الجوله غير موجوده</value>
+  </data>
+  <data name="UserNameEnMaxLength100" xml:space="preserve">
+    <value>إسم المستخدم الإنجليزى الحد الأقصى 100 حرف</value>
+  </data>
+  <data name="UserNameEnRequired" xml:space="preserve">
+    <value>إسم المستخدم الإنجليزى مطلوب</value>
+  </data>
+  <data name="UserNameUrduMaxLength100" xml:space="preserve">
+    <value>إسم المستخدم الأوردو الحد الأقصى 100 حرف</value>
+  </data>
+  <data name="UserNameUrduRequired" xml:space="preserve">
+    <value>إسم المستخدم الأوردو مطلوب</value>
+  </data>
+  <data name="ClassificationNameArRequired" xml:space="preserve">
+    <value>اسم التصنيف عربي مطلوب</value>
+  </data>
+  <data name="ClassificationNameENRequired" xml:space="preserve">
+    <value>اسم التصنيف انجليزي مطلوب</value>
+  </data>
+  <data name="ClassificationNameUrduRequired" xml:space="preserve">
+    <value>اسم التصنيف اردني مطلوب</value>
+  </data>
+  <data name="ClassificationNotFound" xml:space="preserve">
+    <value>تصنيف غير موجود</value>
+  </data>
+  <data name="ClassificationNumberIsRequired" xml:space="preserve">
+    <value>رقم التصنيف مطلوب</value>
+  </data>
+  <data name="ClassificationTypeRequred" xml:space="preserve">
+    <value>نوع التصنيف مطلوب</value>
+  </data>
+  <data name="NameArMaxLength150" xml:space="preserve">
+    <value>الاسم  العربي الحد الاقصي للحروف 150حرف</value>
+  </data>
+  <data name="NameENMaxLength150" xml:space="preserve">
+    <value>الاسم  الانجليزي الحد الاقصي للحروف 150حرف</value>
+  </data>
+  <data name="NameUrduMaxLength150" xml:space="preserve">
+    <value>الاسم  الاردني الحد الاقصي للحروف 150حرف</value>
+  </data>
+  <data name="ContentArMaxLength2000" xml:space="preserve">
+    <value>المحتوى العربي الحد الاقصي للحروف 2000حرف</value>
+  </data>
+  <data name="ContentArRequired" xml:space="preserve">
+    <value>المحتوى العربي مطلوب</value>
+  </data>
+  <data name="ContentEnMaxLength2000" xml:space="preserve">
+    <value>المحتوى الانجليزي الحد الاقصي للحروف 2000حرف</value>
+  </data>
+  <data name="ContentEnRequired" xml:space="preserve">
+    <value>المحتوى الانجليزي مطلوب</value>
+  </data>
+  <data name="ContentUrduMaxLength2000" xml:space="preserve">
+    <value>المحتوى الاردي الحد الاقصي للحروف 2000حرف</value>
+  </data>
+  <data name="ContentUrduRequired" xml:space="preserve">
+    <value>المحتوى الاردي مطلوب</value>
+  </data>
+  <data name="UrlIsRequired" xml:space="preserve">
+    <value>الرابط مطلوب </value>
+  </data>
+  <data name="AdditionalDetailsArMaxLength500" xml:space="preserve">
+    <value>اضافة التفاصيل العربى الحد الاقصي للحروف 500حرف</value>
+  </data>
+  <data name="AdditionalDetailsEnMaxLength500" xml:space="preserve">
+    <value>اضافة التفاصيل الانجليزى الحد الاقصي للحروف 500حرف</value>
+  </data>
+  <data name="AdditionalDetailsUrduMaxLength500" xml:space="preserve">
+    <value>اضافة التفاصيل الأوردو الحد الاقصي للحروف 500حرف</value>
+  </data>
+  <data name="NotAllowedtodeleteordeactivateThisClassification" xml:space="preserve">
+    <value>غير مسموح بتنفيذ هذا الاجراء لارتباط التصنيف بعناصر اخرى</value>
+  </data>
+  <data name="RatingFrom1To5" xml:space="preserve">
+    <value>التقيم من 1 الى 5</value>
+  </data>
+  <data name="TouristOfficeNotFound" xml:space="preserve">
+    <value>مكتب السياحه غير موجود</value>
+  </data>
+  <data name="MaximumLength500" xml:space="preserve">
+    <value>الحد الاقصى للحروف 500</value>
+  </data>
+  <data name="DescriptionArMaxLength2000" xml:space="preserve">
+    <value>الوصف الانجليزى الحد الاقصي للحروف 2000حرف</value>
+  </data>
+  <data name="DescriptionEnMaxLength2000" xml:space="preserve">
+    <value>الوصف العربى الحد الاقصي للحروف 2000حرف</value>
+  </data>
+  <data name="DescriptionUrduMaxLength2000" xml:space="preserve">
+    <value>الوصف الاردي الحد الاقصي للحروف 2000حرف</value>
+  </data>
+  <data name="PlaceInstructionNotFound" xml:space="preserve">
+    <value>تعليمات غير موجودة</value>
+  </data>
+  <data name="PlaceNameArIsRequired" xml:space="preserve">
+    <value>اسم المكان العربي مطلوب</value>
+  </data>
+  <data name="PlaceNameArMaxLength150" xml:space="preserve">
+    <value>الاسم  العربي الحد الاقصي للحروف 150حرف</value>
+  </data>
+  <data name="PlacenameArRequired" xml:space="preserve">
+    <value>اسم المكان عربي مطلوب</value>
+  </data>
+  <data name="PlaceNameEnIsRequired" xml:space="preserve">
+    <value>اسم المكان الانجليزي مطلوب</value>
+  </data>
+  <data name="PlaceNameENMaxLength150" xml:space="preserve">
+    <value>الاسم  الانجليزي الحد الاقصي للحروف 150حرف</value>
+  </data>
+  <data name="PlacenameENRequired" xml:space="preserve">
+    <value>اسم المكان انجليزي مطلوب</value>
+  </data>
+  <data name="PlaceNameUrduIsRequired" xml:space="preserve">
+    <value>اسم المكان الاوردو مطلوب</value>
+  </data>
+  <data name="PlaceNameUrduMaxLength150" xml:space="preserve">
+    <value>الاسم  الاردني الحد الاقصي للحروف 150حرف</value>
+  </data>
+  <data name="PlacenameUrduRequired" xml:space="preserve">
+    <value>اسم المكان اردني مطلوب</value>
+  </data>
+  <data name="UserAlreadyExist" xml:space="preserve">
+    <value>مستخدم موجود من قبل</value>
+  </data>
+  <data name="TranslatorNotFound" xml:space="preserve">
+    <value>المترجم غير موجود</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>صغيه البريد الالكترونى غير صحيحه</value>
+  </data>
+  <data name="LoginFail" xml:space="preserve">
+    <value>خطأ في بيانات الدخول، الرجاء المحاولة مرة أخرى</value>
+  </data>
+  <data name="NumberMaxLength10" xml:space="preserve">
+    <value>الحد الاقصي هو 10 ارقام </value>
+  </data>
+  <data name="NumberRequired" xml:space="preserve">
+    <value>الرقم مطلوب </value>
+  </data>
+  <data name="MentorNotFound" xml:space="preserve">
+    <value>المرشد عير موجود</value>
+  </data>
+  <data name="NameArRequired" xml:space="preserve">
+    <value>الاسم عربي مطلوب</value>
+  </data>
+  <data name="NameENRequired" xml:space="preserve">
+    <value>الاسم  انجليزي مطلوب</value>
+  </data>
+  <data name="NameUrduRequired" xml:space="preserve">
+    <value>الاسم  اردني مطلوب</value>
+  </data>
+  <data name="TransportationNotFound" xml:space="preserve">
+    <value>وسيلة نقل غير موجودة</value>
+  </data>
+  <data name="complaintNotFound" xml:space="preserve">
+    <value>الشكوى غير موجودة </value>
+  </data>
+  <data name="ImageIsRequired" xml:space="preserve">
+    <value>يجب ادخال صورة شاشة الترحيب</value>
+  </data>
+  <data name="OrderMustBeValidInteger" xml:space="preserve">
+    <value>يجب ادخال رقم صحيح</value>
+  </data>
+  <data name="OrderRequired" xml:space="preserve">
+    <value>ترتيب الشاشة مطلوب</value>
+  </data>
+  <data name="ScreenNotExist" xml:space="preserve">
+    <value>شاشة ترحيب غير موجودة</value>
+  </data>
+  <data name="NotAllowedExtension" xml:space="preserve">
+    <value>الصيغة غير مدعومة</value>
+  </data>
+  <data name="RolesRequired" xml:space="preserve">
+    <value>الصلاحيات مطلوبه</value>
+  </data>
+  <data name="StoryNotFound" xml:space="preserve">
+    <value>قصة المدينة غير موجودة</value>
+  </data>
+  <data name="Length10" xml:space="preserve">
+    <value>يجب ادخال 10 حروف</value>
+  </data>
+  <data name="NotificationNotActive" xml:space="preserve">
+    <value>الاشعار غير مفعل </value>
+  </data>
+  <data name="ActivityMaxLength150" xml:space="preserve">
+    <value>النشاط المقترح الحد الاقصي 150حرف</value>
+  </data>
+  <data name="ActivityMaxLengthEn150" xml:space="preserve">
+    <value>النشاط المقترح الحد الاقصي 150 حرف</value>
+  </data>
+  <data name="ActivityMaxLengthUrdu150" xml:space="preserve">
+    <value>النشاط المقترح الحد الاقصي 150 حرف</value>
+  </data>
+  <data name="investmentOpportunityNotFound" xml:space="preserve">
+    <value>الفرصة غير موجودة</value>
+  </data>
+  <data name="MaxLength50" xml:space="preserve">
+    <value>الحد الاقصى 50 حرف</value>
+  </data>
+  <data name="IndustryNotFound" xml:space="preserve">
+    <value>الصناعة غير موجودة</value>
+  </data>
+  <data name="InformationArMaxLength500" xml:space="preserve">
+    <value>الحد الاقصي للمعلومات بالعربية 500 حرف </value>
+  </data>
+  <data name="InformationArRequired" xml:space="preserve">
+    <value>المعلومات مطلوبة</value>
+  </data>
+  <data name="InformationEnMaxLength500" xml:space="preserve">
+    <value>الحد الاقصي للحروف بالانجليزية 500 حرف</value>
+  </data>
+  <data name="InformationEnRequired" xml:space="preserve">
+    <value>المعلومات بالانجليزية مطلوبة</value>
+  </data>
+  <data name="InformationUrduMaxLength500" xml:space="preserve">
+    <value>الحد الاقصي للحروف بالاوردية  500 حرف</value>
+  </data>
+  <data name="InformationUrduRequired" xml:space="preserve">
+    <value>المعلومات بالاوردية مطلوبة</value>
+  </data>
+  <data name="FoodNotFound" xml:space="preserve">
+    <value>الطعام غير موجود</value>
+  </data>
+  <data name="PostNotFound" xml:space="preserve">
+    <value>البوست غير موجود</value>
+  </data>
+</root>

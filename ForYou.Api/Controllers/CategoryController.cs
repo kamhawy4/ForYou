@@ -4,6 +4,7 @@ using ForYou.Application.Features.Category.Commands.UpdateCategory;
 using ForYou.Application.Features.Category.Queries.GetCategoryDetail;
 using ForYou.Application.Features.Category.Queries.GetCategoryList;
 using ForYou.Domain.Contracts;
+using ForYou.SharedServices.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,12 +24,13 @@ namespace ForYou.Api.Controllers
 
 
         [HttpGet("all", Name = "AllCategory")]
-        public async Task<ActionResult<List<GetCategoryListQueryViewModel>>> GetAllCategory()
+        public async Task<ActionResult<TResponse<List<GetCategoryListQueryViewModel>>>> GetAllCategory()
         {
+      
             var allCategory = await Mediator.Send(new GetCategoryListQuery());
 
             return Ok(allCategory);
-
+            
         }
 
         [HttpGet("{id}", Name = "GetCategorybyId")]

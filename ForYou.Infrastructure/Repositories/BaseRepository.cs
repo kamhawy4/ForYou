@@ -33,7 +33,7 @@ namespace ForYou.Infrastructure.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<IReadOnlyList<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
           return await _dbContext.Set<T>().ToListAsync();
         }

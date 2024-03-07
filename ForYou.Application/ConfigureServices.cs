@@ -7,7 +7,7 @@ namespace ForYou.Application
 {
     public static class ConfigureServices
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        public static IServiceCollection AddApplicationServicesForApp(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddServicesOfType<IScopedService>();

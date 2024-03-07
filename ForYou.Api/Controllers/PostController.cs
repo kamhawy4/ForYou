@@ -10,7 +10,6 @@ namespace ForYou.Api.Controllers
 {
     [ApiController]
     [Route("api/posts")]
-    [Authorize]
     public class PostController : ControllerBase
     {
 

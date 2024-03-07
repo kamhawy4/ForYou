@@ -1,14 +1,9 @@
-﻿using ForYou.Application.Features.Category.Queries.GetCategoryList;
+﻿using ForYou.SharedServices.Models;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ForYou.Application.Features.Category.Queries.GetCategoryList
 {
-    public class GetCategoryListQuery :IRequest<List<GetCategoryListQueryViewModel>>
+    public class GetCategoryListQuery : IRequest<TResponse<List<GetCategoryListQueryViewModel>>>
     {
 
     }

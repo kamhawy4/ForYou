@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ForYou.Application.Middleware
 {
-    public class CustomExceptionHandlingMiddleware
+    public class CustomExceptionHandlingMiddleware  
     {
 
         private readonly RequestDelegate _next;

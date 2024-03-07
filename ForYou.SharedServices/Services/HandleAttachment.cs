@@ -16,7 +16,7 @@ namespace ForYou.SharedServices.Services
             if (attachment != null && attachment.Length > 0)
             {
                 var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
-
+                 
                 var FileName = Guid.NewGuid().ToString() + Path.GetExtension(attachment.FileName);
 
                 var filePath = Path.Combine(uploadPath, FileName);
