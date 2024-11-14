@@ -9,7 +9,7 @@ namespace ForYou.Application.Features.Authentication.Register
     {
         public RegisterValidator()
         {
-            RuleFor(p => p.Name).NotEmpty().NotNull().MaximumLength(100);
+            RuleFor(p => p.UserName).NotEmpty().NotNull().MaximumLength(100);
         }
 
     }

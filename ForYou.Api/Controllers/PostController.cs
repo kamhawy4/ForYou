@@ -1,10 +1,12 @@
 ﻿using ForYou.Application.Command.Post;
 using ForYou.Application.Features.Post.Queries.GetPostDetail;
 using ForYou.Application.Features.Post.Queries.GetPostsList;
+using ForYou.Resources;
 using ForYou.SharedServices.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 
 namespace ForYou.Api.Controllers
 {
@@ -14,10 +16,12 @@ namespace ForYou.Api.Controllers
     {
 
         private readonly IMediator _mediator;
+        private readonly IStringLocalizer<SharedResource> _localizer;
 
-        public PostController(IMediator mediator)
+        public PostController(IMediator mediator, IStringLocalizer<SharedResource> localizer)
         {
             _mediator = mediator;
+            _localizer = localizer;
         }
 
         [HttpPost(Name = "AddPost")]
@@ -26,6 +30,13 @@ namespace ForYou.Api.Controllers
             Guid id = await _mediator.Send(createPostCommand);
             return Ok(id);
         }
+
+        [HttpGet("localize", Name = "GetLocalizedMessage")]
+        public IActionResult GetLocalizedMessage()
+        {
+            return Ok(_localizer["hello"].Value); // Key in Resource.en.resx or Resource.fr.resx
+        }
+
 
         [HttpGet("all", Name = "GetALLPosts")]
         public async Task<ActionResult<PaginatedResponseList<GetPostListQueryViewModel>>> GetAllPosts([FromQuery] GetPostListQuery query)

@@ -26,11 +26,11 @@ namespace ForYou.Application.Features.Post.Queries.GetPostDetail
 
         public async Task<PaginatedResponseList<GetPostListQueryViewModel>> Handle(GetPostListQuery request, CancellationToken cancellationToken)
         {
-            var allPosts = await _unitOfWork.posts.Entities.Include(_=>_.Category)
-                                                                .Include(o=>o.User)
-                                                                    .Skip((request.PageNumber - 1) * request.PageSize)
-                                                                        .Take(request.PageSize)
-                                                                          .ToListAsync(cancellationToken);
+            try
+            {
+                var allPosts = await _unitOfWork.posts.Entities.Skip((request.PageNumber - 1) * request.PageSize)
+                                                                       .Take(request.PageSize)
+                                                                         .ToListAsync(cancellationToken);
 
             var totalCount = (await _unitOfWork.posts.Entities.CountAsync());
 
@@ -44,6 +44,15 @@ namespace ForYou.Application.Features.Post.Queries.GetPostDetail
                 Data = paginatedItemsDto
             };
              return result;
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (use your logging framework)
+                Console.WriteLine(ex.Message);
+
+                // Re-throw the exception or return a meaningful error response
+                throw new Exception("An error occurred while processing your request.", ex);
+            }
 
         }
     }

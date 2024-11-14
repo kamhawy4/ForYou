@@ -1,4 +1,5 @@
-﻿using ForYou.Domain.Contracts;
+﻿using ForYou.Application.Contracts;
+using ForYou.Domain.Contracts;
 using ForYou.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ForYou.Infrastructure.Repositories
 {
-    public class UserRepository : BaseRepository<UserEntity>, IUserRepository<UserEntity>
+    public class UserRepository : BaseRepository<UserEntity>, IUserRepository<UserEntity> , IAsyncRepository<UserEntity>
     {
 
         protected readonly PostDbContext _dbContext;
@@ -19,7 +20,6 @@ namespace ForYou.Infrastructure.Repositories
             _dbContext = dbContext;
 
         }
-
 
         public Task<UserEntity> Login(UserEntity entity)
         {
@@ -34,6 +34,20 @@ namespace ForYou.Infrastructure.Repositories
         public async Task<UserEntity> GetUserByEmail(string email)
         {
           return await  _dbContext.Users.FirstOrDefaultAsync(_=>_.Email == email);
+        }
+
+
+        public async Task<UserEntity> GetUserByRefreshTokenAsync(string refreshToken)
+        {
+            // Query the user based on the refresh token
+            return await _dbContext.Users.SingleOrDefaultAsync(u => u.RefreshToken == refreshToken && u.RefreshTokenExpiryTime > DateTime.Now);
+        }
+
+        public void SaveRefreshToken(UserEntity user, string refreshToken)
+        {
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+            _dbContext.SaveChanges();
         }
     }
 }

@@ -22,6 +22,44 @@ namespace ForYou.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ForYou.Domain.Entities.AuditLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BrowserInfo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Details")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DeviceDetails")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IPAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AuditLog");
+                });
+
             modelBuilder.Entity("ForYou.Domain.Entities.CategoryEntity", b =>
                 {
                     b.Property<Guid>("CategoryId")
@@ -84,10 +122,6 @@ namespace ForYou.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("PublishedDate")
                         .HasColumnType("datetime2");
 
@@ -105,6 +139,36 @@ namespace ForYou.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("ForYou.Domain.Entities.PostTagEntity", b =>
+                {
+                    b.Property<Guid>("PostId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TagId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("PostId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("PostTag");
+                });
+
+            modelBuilder.Entity("ForYou.Domain.Entities.TagEntity", b =>
+                {
+                    b.Property<Guid>("TagId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TagId");
+
+                    b.ToTable("TagEntity");
                 });
 
             modelBuilder.Entity("ForYou.Domain.Entities.UserEntity", b =>
@@ -130,6 +194,13 @@ namespace ForYou.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("PublishedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RefreshTokenExpiryTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserName")
@@ -183,6 +254,25 @@ namespace ForYou.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ForYou.Domain.Entities.PostTagEntity", b =>
+                {
+                    b.HasOne("ForYou.Domain.Entities.PostEntity", "Post")
+                        .WithMany("PostTag")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ForYou.Domain.Entities.TagEntity", "Tag")
+                        .WithMany("PostTag")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Post");
+
+                    b.Navigation("Tag");
+                });
+
             modelBuilder.Entity("ForYou.Domain.Entities.CategoryEntity", b =>
                 {
                     b.Navigation("Posts");
@@ -191,6 +281,13 @@ namespace ForYou.Infrastructure.Migrations
             modelBuilder.Entity("ForYou.Domain.Entities.PostEntity", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("PostTag");
+                });
+
+            modelBuilder.Entity("ForYou.Domain.Entities.TagEntity", b =>
+                {
+                    b.Navigation("PostTag");
                 });
 
             modelBuilder.Entity("ForYou.Domain.Entities.UserEntity", b =>

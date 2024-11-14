@@ -15,15 +15,16 @@ namespace ForYou.SharedServices.Services
         {
             if (attachment != null && attachment.Length > 0)
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
-                 
-                var FileName = Guid.NewGuid().ToString() + Path.GetExtension(attachment.FileName);
 
-                var filePath = Path.Combine(uploadPath, FileName);
+;               var uploadpath =  Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
 
-                await  attachment.CopyToAsync(new FileStream(filePath, FileMode.Create));
+                var filename =   Guid.NewGuid().ToString() + Path.GetExtension(attachment.FileName);
 
-                return uploadPath;
+                var filePath = Path.Combine(uploadpath, filename);
+
+                await attachment.CopyToAsync(new FileStream(filePath,FileMode.Create));
+
+                return uploadpath;
 
             }
             return "No file selected for upload.";

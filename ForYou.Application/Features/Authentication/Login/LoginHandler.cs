@@ -9,36 +9,16 @@ namespace ForYou.Application.Features.Authentication.Login
 {
     public class LoginHandler : IRequestHandler<LoginCommend, TResponse<LoginResponse>>
     {
-        private readonly IMapper _mapper;
-        private readonly IConfiguration _configuration;
-        // private readonly IAuthenticatService _authenticatService;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IWebTokenService _webTokenService;
+        private readonly IAuthService _authService;
 
-        public LoginHandler(IConfiguration configuration, IMapper mapper, IUnitOfWork unitOfWork, IWebTokenService webTokenService)
+        public LoginHandler(IAuthService authService)
         {
-            _configuration = configuration;
-            _mapper = mapper;
-            _unitOfWork = unitOfWork;
-            _webTokenService = webTokenService;
+            _authService = authService;
         }
 
         public async Task<TResponse<LoginResponse>> Handle(LoginCommend request, CancellationToken cancellationToken)
         {
-            //var checkUser = await _authenticatService.IsAuthenticated(request.Email, request.Password);
-
-            try
-            {
-                var user = await _unitOfWork.users.GetUserByEmail(request.Email);
-
-                var loginResult = user.MappToLogin(_webTokenService.GetToken(user));
-
-                return TResponse<LoginResponse>.Success(loginResult);
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
+            return await _authService.LoginAsync(request.Email, request.Password);
         }
 
     }

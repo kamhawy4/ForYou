@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ForYou.Application.Features.Authentication.Register
 {
-    public class Response
+    public class RegisterResponse
     {
 
     }

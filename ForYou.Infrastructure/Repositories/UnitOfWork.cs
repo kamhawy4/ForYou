@@ -13,13 +13,15 @@ namespace ForYou.Infrastructure.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly PostDbContext _context;
+
         public UnitOfWork(PostDbContext context) {
 
             _context = context;
             categories = new BaseRepository<CategoryEntity>(_context);
             posts = new BaseRepository<PostEntity>(_context);
+            tags = new BaseRepository<TagEntity>(_context);
             comments = new BaseRepository<CommentEntity>(_context);
-
+          //  log = new AuditLogRepository<AuditLog>(_context);
             users = new UserRepository(_context);
 
         }
@@ -31,6 +33,10 @@ namespace ForYou.Infrastructure.Repositories
         public IAsyncRepository<CommentEntity> comments { get; private set; }
 
         public IUserRepository<UserEntity> users { get; private set; }
+
+        public IAsyncRepository<TagEntity> tags { get; private set; }
+
+        public IAuditLogRepository<AuditLog> log { get; private set; }
 
         public int CommitChanges()
         {

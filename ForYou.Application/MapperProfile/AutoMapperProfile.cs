@@ -19,6 +19,13 @@ using ForYou.Application.Command.Commands.UpdateComment;
 using ForYou.Application.Features.Post.Queries.GetPostDetail;
 using ForYou.Application.Command.Post;
 using ForYou.Application.Features.Post.Queries.GetPostsList;
+using ForYou.Application.Features.Tag.Queries.GetTagDetail;
+using ForYou.Application.Features.Tag.Queries.GetTagList;
+using ForYou.Application.Features.Tag.Commends.CreateTag;
+using ForYou.Application.Features.Tag.Commends.DeleteTag;
+using ForYou.Application.Features.Tag.Commends.UpdateTag;
+using ForYou.Application.Features.Authentication.Register;
+using ForYou.Application.Features.Authentication.RefreshToken;
 
 namespace ForYou.Application.MapperProfile
 {
@@ -32,6 +39,12 @@ namespace ForYou.Application.MapperProfile
             CreateMap<CategoryEntity, DeleteCategoryCommend>().ReverseMap();
             CreateMap<CategoryEntity, UpdateCategoryCommend>().ReverseMap();
 
+            CreateMap<TagEntity, GetTagByIdQueryViewModel>().ReverseMap();
+            CreateMap<TagEntity, GetTagListQueryViewModel>().ReverseMap();
+            CreateMap<TagEntity, CreateTagCommend>().ReverseMap();
+            CreateMap<TagEntity, DeleteTagCommend>().ReverseMap();
+            CreateMap<TagEntity, UpdateTagCommend>().ReverseMap();
+
             CreateMap<CommentEntity, GetCommentByIdQueryViewModel>().ReverseMap();
             CreateMap<CommentEntity, GetCommentListQueryViewModel>().ReverseMap();
             CreateMap<CommentEntity, CreateCommentCommend>().ReverseMap();
@@ -39,12 +52,17 @@ namespace ForYou.Application.MapperProfile
             CreateMap<CommentEntity, UpdateCommentCommend>().ReverseMap();
 
             CreateMap<PostEntity, GetPostByIdQueryViewModel>().ReverseMap();
-            CreateMap<PostEntity, GetPostListQueryViewModel>().ReverseMap();
+
+            CreateMap<PostEntity, GetPostListQueryViewModel>()
+                .ForMember(dest => dest.Tag, opt => opt.MapFrom(src => src.PostTag.Select(pt => pt.Tag.Title).ToList()));
+
             CreateMap<PostEntity, CreatePostCommend>().ReverseMap();
             CreateMap<PostEntity, DeletePostCommend>().ReverseMap();
             CreateMap<PostEntity, UpdatePostCommend>().ReverseMap();
             CreateMap<CategoryEntity, CategoryDto>().ReverseMap();
             CreateMap<UserEntity, UserDto>().ReverseMap();
+            CreateMap<UserEntity, RegisterCommend>().ReverseMap();
+            CreateMap<UserEntity, RefreshTokenResponce>().ReverseMap();
 
 
         }

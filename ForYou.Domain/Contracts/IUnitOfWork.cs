@@ -14,6 +14,9 @@ namespace ForYou.Domain.Contracts
         IAsyncRepository<PostEntity> posts { get; }
         IAsyncRepository<CommentEntity> comments { get; }
         IUserRepository<UserEntity> users { get; }
+        IAsyncRepository<TagEntity> tags { get; }
+     //   IAuditLogRepository<AuditLog> log { get; }
+
         int CommitChanges();
     }
 }

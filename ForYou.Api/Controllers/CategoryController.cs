@@ -1,4 +1,5 @@
-﻿using ForYou.Application.Features.Category.Commands.CreateCategory;
+﻿using ForYou.Application.Common.Models;
+using ForYou.Application.Features.Category.Commands.CreateCategory;
 using ForYou.Application.Features.Category.Commands.DeleteCategory;
 using ForYou.Application.Features.Category.Commands.UpdateCategory;
 using ForYou.Application.Features.Category.Queries.GetCategoryDetail;
@@ -6,20 +7,23 @@ using ForYou.Application.Features.Category.Queries.GetCategoryList;
 using ForYou.Domain.Contracts;
 using ForYou.SharedServices.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ForYou.Api.Controllers
 {
+
+    //[Authorize]
     [ApiController]
     [Route("api/categories")]
     public class CategoryController : BaseController
     {
 
         [HttpPost(Name = "AddCategory")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateCategoryCommend createCategoryCommend)
+        public async Task<ActionResult<Result<string>>> Create([FromBody] CreateCategoryCommend createCategoryCommend)
         {
-            Guid id = await Mediator.Send(createCategoryCommend);
-            return Ok(id);
+            Result<string> data = await Mediator.Send(createCategoryCommend);
+            return Ok(data);
         }
 
 

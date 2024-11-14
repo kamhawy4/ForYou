@@ -29,7 +29,7 @@ namespace ForYou.Application.Middleware
             }
             catch (Exception exception)
             {
-                _logger.LogError(
+                _logger.LogError( 
                     exception, "Exception occurred: {Message}", exception.Message);
 
                 var problemDetails = new ProblemDetails

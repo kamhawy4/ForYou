@@ -16,5 +16,7 @@ namespace ForYou.Application.Features.Post.Queries.GetPostDetail
         public string Image { get; set; }
         public UserDto User { get; set; }
         public CategoryDto Category { get; set; }
+        public List<string> Tag { get; set; }
+
     }
 }

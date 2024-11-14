@@ -15,11 +15,11 @@ namespace ForYou.Application.Features.Post.Queries.GetPostDetail
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IResourceHandler _resourceHandler;
+       // private readonly IResourceHandler _resourceHandler;
 
-        public GetPostByIdQueryHandler(IMapper mapper,IResourceHandler resourceHandler, IUnitOfWork unitOfWork) {
+        public GetPostByIdQueryHandler(IMapper mapper, IUnitOfWork unitOfWork) {
             _mapper = mapper;
-            this._resourceHandler = resourceHandler;
+            //this._resourceHandler = resourceHandler;
             _unitOfWork = unitOfWork;
         }
 
@@ -28,8 +28,8 @@ namespace ForYou.Application.Features.Post.Queries.GetPostDetail
 
             var post = await _unitOfWork.posts.GetByIdAsync(request.Id);
 
-            if (post == null)
-               throw new Exception(_resourceHandler.GetError("PostNotFound"));
+            //if (post == null)
+            //   throw new Exception(_resourceHandler.GetError("PostNotFound"));
 
             return _mapper.Map<GetPostByIdQueryViewModel>(post);
         }

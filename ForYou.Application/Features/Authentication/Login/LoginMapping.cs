@@ -13,8 +13,12 @@ namespace ForYou.Application.Features.Authentication.Login
         {
             return new LoginResponse()
             {
+                FirstName = user.FirstName,
+                Mobile = user.Mobile,
                 Email = user.Email,
                 Token = token,
+                RefreshToken = user.RefreshToken,
+                RefreshTokenExpiryTime = user.RefreshTokenExpiryTime,
             };
         }
     }

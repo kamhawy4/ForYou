@@ -17,6 +17,8 @@ namespace ForYou.Infrastructure
         public DbSet<CommentEntity> Comments { get; set; }
         public DbSet<PostEntity> Posts { get; set; }
         public DbSet<UserEntity> Users { get; set; }
+        public DbSet<PostTagEntity> PostTag { get; set; }
+        public DbSet<AuditLog> AuditLog { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -45,6 +47,21 @@ namespace ForYou.Infrastructure
                 .WithMany(p => p.Comments)
                 .HasForeignKey(c => c.PostId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+
+            modelBuilder.Entity<PostTagEntity>()
+                .HasKey(t => new { t.PostId, t.TagId });
+
+            modelBuilder.Entity<PostTagEntity>()
+                .HasOne(Pt => Pt.Post)
+                .WithMany(pt => pt.PostTag)
+                .HasForeignKey(pt =>pt.PostId);
+
+
+            modelBuilder.Entity<PostTagEntity>()
+                .HasOne(pt => pt.Tag)
+                .WithMany(pt => pt.PostTag)
+                .HasForeignKey(pt => pt.TagId);
 
         }
 

@@ -9,6 +9,7 @@ using ForYou.SharedServices.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using ForYou.Application.Services.Services;
 
 namespace ForYou.Application
 {
@@ -21,6 +22,8 @@ namespace ForYou.Application
             services.AddScoped<IHandleAttachment, HandleAttachment>();
             services.AddScoped<IWebTokenService, WebTokenService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+           
+            services.AddScoped<IAuthService, AuthService>();
 
             services.Configure<AppSettings>(options => configuration.GetSection("AppSettings").Bind(options));
 

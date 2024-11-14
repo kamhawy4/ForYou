@@ -1,17 +1,13 @@
 using ForYou.Application;
-using ForYou.Application.Common.Helpers;
 using ForYou.Application.Middleware;
 using ForYou.Application.Services.Interfaces;
-using ForYou.Domain.Contracts;
-using ForYou.Infrastructure;
-using ForYou.Infrastructure.Repositories;
-using ForYou.Infrastructure.Services.Web;
-using ForYou.SharedServices.Interfaces;
-using ForYou.SharedServices.Services;
+using ForYou.Application.Services.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Globalization;
 using System.Reflection;
 using System.Text;
 
@@ -25,11 +21,24 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(o => o.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddApplicationServicesForInfrastructure(builder.Configuration);
-builder.Services.AddApplicationServicesForApp();
+builder.Services.AddApplicationServicesForApp();                
+builder.Services.AddScoped<IAuditLogger, AuditLogger>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddControllers()
+          .AddDataAnnotationsLocalization()
+          .AddViewLocalization();
+var supportedCultures = new[] { "en", "ar" };
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture("en");
+    options.SupportedCultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
+    options.SupportedUICultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
+});
+
 
 builder.Services.AddSwaggerGen(config =>
 {
-
     // Add the Bearer token security definition
     config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -39,7 +48,7 @@ builder.Services.AddSwaggerGen(config =>
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
-    }); 
+    });
 
     // Require the Bearer token for all requests
     config.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -84,7 +93,9 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+
 var app = builder.Build();
+
 
 var loggerFactory = app.Services.GetService<ILoggerFactory>();
 loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"].ToString());
@@ -106,6 +117,6 @@ app.UseMiddleware<CustomExceptionHandlingMiddleware>();
 
 app.MapControllers();
 
-
+app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
 app.Run();

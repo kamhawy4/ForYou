@@ -24,7 +24,7 @@ namespace ForYou.Api.Controllers
 
 
         [HttpPost(Name = "AddComment")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateCommentCommend createCommentCommend)
+        public async  Task<ActionResult<Guid>> Create([FromBody] CreateCommentCommend createCommentCommend)
         {
             Guid id = await _mediator.Send(createCommentCommend);
             return Ok(id);
