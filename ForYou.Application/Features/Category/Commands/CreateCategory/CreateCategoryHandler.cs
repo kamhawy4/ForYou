@@ -8,6 +8,7 @@ using ForYou.Application.Interfaces;
 using ForYou.Application.Services.Interfaces;
 using ForYou.Domain.Contracts;
 using ForYou.Domain.Entities;
+using ForYou.SharedServices.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Localization;
 
@@ -20,17 +21,19 @@ namespace ForYou.Application.Features.Category.Commands.CreateCategory
         private readonly IUnitOfWork _unitOfWork;
         private readonly IAuditLogger _auditLogger;
         private readonly IStringLocalizer _Localizer;
+        private readonly IEmailService _emailService;
 
         private readonly IStringLocalizer<CreateCategoryHandler> _localizer;
 
 
-        public CreateCategoryHandler(IMapper mapper, IUnitOfWork unitOfWork, IAuditLogger auditLogger, IStringLocalizer<CreateCategoryHandler> localizer)
+        public CreateCategoryHandler(IMapper mapper, IUnitOfWork unitOfWork, IAuditLogger auditLogger, IStringLocalizer<CreateCategoryHandler> localizer, IEmailService emailServic)
         {
             _mapper = mapper;
             _auditLogger = auditLogger;
             _userId = "421610c0-76a9-45c3-b0e7-3f4fed5fc7d2";
             _unitOfWork = unitOfWork;
             _localizer = localizer;
+            _emailService = emailServic;
         }
 
         public async Task<Result<string>> Handle(CreateCategoryCommend request, CancellationToken cancellationToken)
@@ -47,6 +50,8 @@ namespace ForYou.Application.Features.Category.Commands.CreateCategory
             await _unitOfWork.categories.AddAsync(category);
 
             await _auditLogger.LogAsync("Performed an action", _userId, "Additional action details");
+
+            await _emailService.SendEmailAsync("akamhawy@2p.com.sa", "for test");
 
             return Result<string>.Success(_localizer["categorysuccess"]);
         }

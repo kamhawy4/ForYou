@@ -3,6 +3,7 @@ using ForYou.Application.Features.Authentication.RefreshToken;
 using ForYou.Application.Features.Authentication.Register;
 using ForYou.SharedServices.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 
 namespace ForYou.Api.Controllers
 {
@@ -15,6 +16,14 @@ namespace ForYou.Api.Controllers
         public async Task<ActionResult<TResponse<LoginResponse>>> Login([FromBody] LoginCommend loginCommend)
         {
             var token = await Mediator.Send(loginCommend);
+            return Ok(token);
+        }
+
+
+        [HttpPost("ADLogin")]
+        public async Task<ActionResult<TResponse<ADLoginResponse>>> LoginADLogin([FromBody] ADLoginCommend adloginCommend)
+        {
+            var token = await Mediator.Send(adloginCommend);
             return Ok(token);
         }
 

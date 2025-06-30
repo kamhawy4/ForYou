@@ -14,10 +14,15 @@ namespace ForYou.Application.Services.Interfaces
     public interface IAuthService
     {
         Task<TResponse<LoginResponse>> LoginAsync(string email,string password);
-
+        Task<bool> ADLoginAsync(string username, string password);
+        
         Task<Guid> RegisterAsync(RegisterCommend request);
 
-
         Task<TResponse<RefreshTokenResponce>> GetRefreshToken(string Token, string refreshToken);
+
+        bool ValidateUser(string username, string password);
+
+        object GetUserDetails(string username);
+
     }
 }

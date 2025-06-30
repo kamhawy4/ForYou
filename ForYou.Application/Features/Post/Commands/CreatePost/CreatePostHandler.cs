@@ -18,11 +18,13 @@ namespace ForYou.Application.Handler.Post
         private readonly IMapper _mapper;
         private readonly IHandleAttachment _attachment;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IEmailService _emailService;
 
-        public CreatePostHandler(IMapper mapper, IHandleAttachment attachment, IUnitOfWork unitOfWork) {
+        public CreatePostHandler(IMapper mapper, IHandleAttachment attachment, IUnitOfWork unitOfWork,IEmailService emailService) {
             _mapper = mapper;
             _attachment = attachment;
             _unitOfWork = unitOfWork;
+            _emailService = emailService;
         }
 
         public async Task<Guid> Handle(CreatePostCommend request, CancellationToken cancellationToken)
@@ -46,6 +48,9 @@ namespace ForYou.Application.Handler.Post
             }).ToList();
 
             await _unitOfWork.posts.AddAsync(post);
+
+
+          await  _emailService.SendEmailAsync("akamhawy@2p.com.sa","for test");
 
             return post.PostId;
 

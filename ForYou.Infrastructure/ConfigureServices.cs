@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using ForYou.Application.Services.Services;
+using Hangfire;
 
 namespace ForYou.Application
 {
@@ -22,10 +23,14 @@ namespace ForYou.Application
             services.AddScoped<IHandleAttachment, HandleAttachment>();
             services.AddScoped<IWebTokenService, WebTokenService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<IEmailService, EmailService>();
            
             services.AddScoped<IAuthService, AuthService>();
 
             services.Configure<AppSettings>(options => configuration.GetSection("AppSettings").Bind(options));
+
+            services.AddHangfire(x => x.UseSqlServerStorage(configuration.GetConnectionString("PostConnectionString")));
+            services.AddHangfireServer();
 
             return services;
         }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ForYou.Application.Common.Helpers;
 using ForYou.Application.Features.Authentication.Login;
 using ForYou.Application.Features.Authentication.RefreshToken;
 using ForYou.Application.Features.Authentication.Register;
@@ -7,22 +8,30 @@ using ForYou.Domain.Contracts;
 using ForYou.Domain.Entities;
 using ForYou.SharedServices.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using System.ComponentModel;
+using System.DirectoryServices.AccountManagement;
 
 namespace ForYou.Infrastructure.Services.Web
 {
     public class AuthService : IAuthService
     {
+        private readonly ActiveDirectorySettings _adService;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IWebTokenService _webTokenService;
+        private readonly string _domainName;
+        private readonly string _container;
 
-        public AuthService(IConfiguration configuration, IMapper mapper, IUnitOfWork unitOfWork, IWebTokenService webTokenService)
+        public AuthService(IConfiguration configuration, IMapper mapper, IUnitOfWork unitOfWork, IWebTokenService webTokenService, IOptions<ActiveDirectorySettings> adSettings)
         {
             _configuration = configuration;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _webTokenService = webTokenService;
+            _domainName = adSettings.Value.Domain;
+            _container = adSettings.Value.Container;
         }
 
 
@@ -85,5 +94,59 @@ namespace ForYou.Infrastructure.Services.Web
 
         }
 
+        public bool ValidateUser(string username, string password)
+        {
+            try
+            {
+                using (var context = new PrincipalContext(ContextType.Domain, _domainName, _container))
+                {
+                    // Validate the user credentials
+                    return context.ValidateCredentials(username, password);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error validating user: {ex.Message}");
+                return false;
+            }
+        }
+
+        public object GetUserDetails(string username)
+        {
+            try
+            {
+                using (var context = new PrincipalContext(ContextType.Domain, _domainName, _container))
+                {
+
+                    using (var searcher = new PrincipalSearcher(new UserPrincipal(context)))
+                    {
+                        var user = searcher.FindOne() as UserPrincipal;
+                        return user;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error validating user: {ex.Message}");
+                return null;
+            }
+        }
+
+        public async Task<bool> ADLoginAsync(string username, string password)
+        {
+            try
+            {
+                using (var context =  new PrincipalContext(ContextType.Domain, _domainName, _container))
+                {
+                    return  context.ValidateCredentials(username, password);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error validating user: {ex.Message}");
+                return false;
+            }
+        }
     }
 }

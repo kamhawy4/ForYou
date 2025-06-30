@@ -6,13 +6,15 @@ using ForYou.Application.Features.Category.Queries.GetCategoryDetail;
 using ForYou.Application.Features.Category.Queries.GetCategoryList;
 using ForYou.Domain.Contracts;
 using ForYou.SharedServices.Models;
+using Hangfire;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace ForYou.Api.Controllers
 {
-
+    [EnableRateLimiting("fixed")]
     //[Authorize]
     [ApiController]
     [Route("api/categories")]
@@ -26,12 +28,13 @@ namespace ForYou.Api.Controllers
             return Ok(data);
         }
 
-
+        [EnableRateLimiting("fixed")]
         [HttpGet("all", Name = "AllCategory")]
         public async Task<ActionResult<TResponse<List<GetCategoryListQueryViewModel>>>> GetAllCategory()
         {
       
             var allCategory = await Mediator.Send(new GetCategoryListQuery());
+            BackgroundJob.Enqueue(() => Console.WriteLine("Hello, world!"));
 
             return Ok(allCategory);
             
